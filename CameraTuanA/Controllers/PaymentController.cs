@@ -113,7 +113,9 @@ namespace CameraTuanA.Controllers
                 }
 
                 // Nếu là VNPay → trả URL để redirect
-                string paymentUrl = Url.Action("PaymentDemo", "Payment", new { orderCode = obj.OrderCode, amount = totalAmount }, protocol: Request.Scheme);
+                string paymentUrl = Url.Action("PaymentDemo", "Payment",
+                                         new { orderCode = obj.OrderCode, amount = totalAmount }, protocol: "https");
+
                 return Json(new { success = true, message = "Tạo đơn hàng thành công", url = paymentUrl });
             }
             catch (Exception ex)
@@ -129,7 +131,7 @@ namespace CameraTuanA.Controllers
         public IActionResult PaymentDemo(string orderCode, decimal amount)
         {
             string vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-            string vnp_Returnurl = Url.Action("VnpayReturn", "Payment", null, protocol: Request.Scheme);
+            string vnp_Returnurl = Url.Action("VnpayReturn", "Payment", null, protocol: "https");
             string vnp_TmnCode = "5T449IW5";   // demo
             string vnp_HashSecret = "IFDNHBTORS0USOPSHDRV5UN9TTEZUZ7T"; // demo
 
@@ -140,6 +142,7 @@ namespace CameraTuanA.Controllers
                 { "vnp_TmnCode", vnp_TmnCode },
                 { "vnp_Amount", ((int)(amount * 100)).ToString() },
                 { "vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss") },
+                { "vnp_ExpireDate", DateTime.Now.AddMinutes(15).ToString("yyyyMMddHHmmss") },
                 { "vnp_CurrCode", "VND" },
                 { "vnp_IpAddr", HttpContext.Connection.RemoteIpAddress?.ToString() ?? "127.0.0.1" },
                 { "vnp_Locale", "vn" },
@@ -149,35 +152,59 @@ namespace CameraTuanA.Controllers
                 { "vnp_TxnRef", orderCode }
             };
 
-            // Tạo chuỗi dữ liệu ký
+            // 🔐 Ký dữ liệu
             string signData = string.Join("&", vnpayData.Select(kv => $"{kv.Key}={kv.Value}"));
             string vnp_SecureHash;
             using (var hmac = new System.Security.Cryptography.HMACSHA512(Encoding.UTF8.GetBytes(vnp_HashSecret)))
             {
-                vnp_SecureHash = BitConverter.ToString(hmac.ComputeHash(Encoding.UTF8.GetBytes(signData))).Replace("-", "").ToLower();
+                vnp_SecureHash = BitConverter.ToString(hmac.ComputeHash(Encoding.UTF8.GetBytes(signData)))
+                    .Replace("-", "").ToLower();
             }
 
             string paymentUrl = $"{vnp_Url}?{signData}&vnp_SecureHash={vnp_SecureHash}";
             return Redirect(paymentUrl);
         }
 
-
         public IActionResult VnpayReturn()
         {
-            var query = Request.Query;
-            string responseCode = query["vnp_ResponseCode"];
-            string orderCode = query["vnp_TxnRef"];
+            var query = Request.Query.ToDictionary(k => k.Key, v => v.Value.ToString());
+            string vnp_HashSecret = "IFDNHBTORS0USOPSHDRV5UN9TTEZUZ7T";
 
-            if (string.IsNullOrEmpty(orderCode))
+            if (!query.TryGetValue("vnp_SecureHash", out var vnp_SecureHash))
             {
-                ViewBag.Message = "❌ Không tìm thấy thông tin đơn hàng.";
+                ViewBag.Message = "❌ Thiếu mã hash xác minh từ VNPay.";
                 return View();
             }
+
+            // Bỏ vnp_SecureHash và vnp_SecureHashType khỏi chuỗi để ký lại
+            query.Remove("vnp_SecureHash");
+            query.Remove("vnp_SecureHashType");
+
+            // Sắp xếp key theo alphabet và ký lại
+            var ordered = query.OrderBy(kv => kv.Key);
+            string rawData = string.Join("&", ordered.Select(kv => $"{kv.Key}={kv.Value}"));
+            string computedHash;
+
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(Encoding.UTF8.GetBytes(vnp_HashSecret)))
+            {
+                computedHash = BitConverter.ToString(hmac.ComputeHash(Encoding.UTF8.GetBytes(rawData)))
+                    .Replace("-", "").ToLower();
+            }
+
+            if (computedHash != vnp_SecureHash)
+            {
+                ViewBag.Message = "❌ Dữ liệu không hợp lệ (sai mã hash).";
+                return View();
+            }
+
+            // ✅ Đến đây là hợp lệ
+            string responseCode = query["vnp_ResponseCode"];
+            string orderCode = query["vnp_TxnRef"];
 
             var order = _db.Order.FirstOrDefault(o => o.OrderCode == orderCode);
             if (order == null)
             {
-                ViewBag.Message = "❌ Đơn hàng không tồn tại.";
+                ViewBag.Message = "❌ Không tìm thấy đơn hàng.";
                 return View();
             }
 
@@ -189,11 +216,12 @@ namespace CameraTuanA.Controllers
             }
             else
             {
-                ViewBag.Message = "❌ Thanh toán thất bại hoặc bị hủy";
+                ViewBag.Message = $"❌ Thanh toán thất bại ({responseCode})";
             }
 
             return View();
         }
+
 
 
 
