@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Truy cập bị từ chối";
+    var returnUrl = ViewBag.ReturnUrl as string;
+    Layout = "";
+}
+
+<style>
+    body {
+        background: #f8f9fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .denied-container {
+        max-width: 500px;
+        margin: 120px auto;
+        text-align: center;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        padding: 40px 30px;
+    }
+
+        .denied-container h1 {
+            font-size: 3rem;
+            color: #dc3545;
+            margin-bottom: 15px;
+        }
+
+        .denied-container h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .denied-container p {
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+
+        .denied-container a.btn {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.2s;
+            margin: 0 5px;
+        }
+
+    .btn-primary {
+        background-color: #0d6efd;
+        color: white;
+    }
+
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5c636a;
+        }
+</style>
+
+<div class="denied-container">
+    <h1>🚫</h1>
+    <h4>Truy cập bị từ chối</h4>
+    <p>Bạn không có quyền truy cập vào trang này.</p>
+
+    <div>
+        @if (!string.IsNullOrEmpty(returnUrl))
+        {
+            <a href="@returnUrl" class="btn btn-primary">Quay lại trang trước</a>
+        }
+        <a href="/" class="btn btn-secondary">Về trang chủ</a>
+    </div>
+</div>

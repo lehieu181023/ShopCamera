@@ -1,0 +1,87 @@
+﻿@model CameraTuanA.Models.Brand
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Chi tiết</h4>
+                <button type="button" class="close btn bg-transparent border-0" data-bs-dismiss="modal" onclick="closeModal()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="Logo" class="control-label col-md-2 text-right">Logo</label>
+                            <img src="@Model.Logo" style="max-height: 200px; max-width: 200px;" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="BrandName" class="control-label col-md-2 text-right">Tên hãng <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <p>@Model.BrandName</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="Description" class="control-label col-md-2 text-right">Giới thiệu</label>
+                            <div class="col-md-10">
+                                <p>@Model.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="Website" class="control-label col-md-2 text-right">Trang web </label>
+                            <div class="col-md-10">
+                                <a href="@Model.Website">@Model.Website</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="Description" class="control-label col-md-2 text-right">Ngày tạo</label>
+                            <div class="col-md-10">
+                                <p>@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm:ss")</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="Description" class="control-label col-md-2 text-right">Ngày cập nhật</label>
+                            <div class="col-md-10">
+                                <p>@Model.UpdatedAt.ToString("dd/MM/yyyy HH:mm:ss")</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="Status" class="control-label col-md-2 text-right">Trạng thái</label>
+                            <div class="col-md-10">
+                                @if (Model.Status)
+                                {
+                                    <p class="btn btn-primary">Kích hoạt</p>
+                                }
+                                else
+                                {
+                                    <p class="btn btn-danger">Vô hiệu</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnclosemodel" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>

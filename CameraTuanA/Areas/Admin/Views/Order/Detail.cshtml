@@ -1,0 +1,158 @@
+﻿@model CameraTuanA.Models.Order
+@using System.Globalization
+@removeTagHelper "Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper, Microsoft.AspNetCore.Mvc.TagHelpers"
+@{
+    ViewData["Title"] = "Order";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="pagetitle">
+    <h1>Order</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Order</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-12">
+                            <div class="search-container row" id="divSearch">
+                                <div class=" col-3">
+                                    <select class="form-select mt-2" onchange="Order.changeStatus(@Model.Id, this.value)">
+                                        @foreach (var status in Enum.GetValues(typeof(EnumMethod.OrderStatus)).Cast<EnumMethod.OrderStatus>())
+                                        {
+                                            bool isSelected = (int)status == Model.Status;
+                                            <option value="@((int)status)" @(isSelected ? "selected" : "")>
+                                                @EnumMethod.OrderStatusToString((int)status)
+                                            </option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-12 text-end">
+                            <a class="btn btn-success" href="/admin/order">
+                                <i class="bi bi-arrow-return-left"></i> Trở lại danh sách
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="form-control-plaintext bg-light px-3 py-2 rounded form-horizontal">
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label class="control-label col-md-2 text-right">Mã đơn hàng: </label>
+                                <div class="col-md-10">
+                                    <p>@Model.OrderCode</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label class="control-label col-md-2 text-right">Tên khách hàng: </label>
+                                <div class="col-md-10">
+                                    <p>@Model.RecipientName</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label class="control-label col-md-2 text-right">Số điện thoại: </label>
+                                <div class="col-md-10">
+                                    <p>@Model.RecipientPhone</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label class="control-label col-md-2 text-right">Email: </label>
+                                <div class="col-md-10">
+                                    <p>@Model.RecipientEmail</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label class="control-label col-md-2 text-right">Địa chỉ nhận hàng: </label>
+                                <div class="col-md-10">
+                                    <p>@Model.ShippingAddress</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label class="control-label col-md-2 text-right">Phương thức thanh toán: </label>
+                                <div class="col-md-10">
+                                    @if(Model.PaymentMethod == "cod")
+                                    {
+                                        <p>Thanh toán khi nhận hàng (COD)</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Thanh toán bằng VNpay</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label class="control-label col-md-2 text-right">Thành tiền: </label>
+                                <div class="col-md-10">
+                                    <p>@String.Format(new CultureInfo("vi-VN"), "{0:C0}", Model.FinalTotal)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-control-plaintext bg-light px-3 py-2 rounded">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã sản phẩm</th>
+                                    <th>Ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Giá bán</th>
+                                    <th>Số lượng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    int stt = 1;
+                                }
+                                @foreach (var item in Model.OrderDetails)
+                                {
+                                    <tr>
+                                        <td class="text-center align-middle">@(stt++)</td>
+                                        <td class="text-center align-middle">@item.Product.ProductCode</td>
+                                        <td class="text-center align-middle"><img src="@item.Product.MainImage" alt="Logo" style="max-width: 200px; max-height: 200px;"></td>
+                                        <td class="text-center align-middle">@item.ProductName</td>
+                                        <td class="text-center align-middle">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.SellingPrice)</td>
+                                        <td class="text-center align-middle">@item.Quantity</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <script src="~/Appjs/Admin/Order.js"></script>
+}
+
+
+
+
+
+

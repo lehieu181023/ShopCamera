@@ -1,0 +1,141 @@
+﻿@model List<CameraTuanA.Models.Account>
+
+@{
+    int pageNumber = ViewBag.PageNumber ?? 10;     // Tổng số trang
+    int pageCurrent = ViewBag.PageCurrent ?? 1;     // Trang hiện tại
+    int pageSize = ViewBag.PageSize ?? 10;          // Số dòng / trang
+    int[] pageSizes = new[] { 5, 10, 20, 50 };      // Danh sách chọn số dòng
+    int maxPages = 7; // số nút tối đa
+    int startPage = Math.Max(1, pageCurrent - maxPages / 2);
+    int endPage = Math.Min(pageNumber, startPage + maxPages - 1);
+
+    // Nếu cuối danh sách mà số nút ít hơn maxPages thì đẩy startPage về
+    if (endPage - startPage + 1 < maxPages)
+    {
+        startPage = Math.Max(1, endPage - maxPages + 1);
+    }
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tài khoản</th>
+            <th>Tên người dùng</th>
+            <th>Vai trò</th>
+            <th>Số điện thoại</th>
+            <th>Ngày cập nhật</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int stt = 1;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center align-middle">@(stt++)</td>
+                <td class="text-center align-middle">@item.Username</td>
+                <td class="text-center align-middle">@item.FullName</td>
+                <td class="text-center align-middle">
+                    @if (item.Role.Equals("admin"))
+                    {
+                        <p class="mb-0">Quản trị viên</p>
+                    }
+                    else
+                    {
+                        <p class="mb-0">Khách hàng</p>
+                    }
+                </td>
+                <td class="text-center align-middle">@item.PhoneNumber</td>
+                <td class="text-center align-middle">@item.UpdatedAt.ToString("dd/MM/yyyy")</td>
+                <td class="text-center align-middle">
+                    @if (item.Status)
+                    {
+                        <button type="button" class="btn btn-primary" onclick="Account.editStatus(@item.Id)">Kích hoạt</button>
+                    }
+                    else
+                    {
+                        <button type="button" class="btn btn-danger" onclick="Account.editStatus(@item.Id)">Vô hiệu</button>
+                    }
+                </td>
+                <td class="text-center align-middle">
+                    <!-- Nút chi tiết -->
+                    <button type="button" class="btn btn-info text-white" id="detailButton" onclick="Account.loadModelDetail(@item.Id)">
+                        <i class="bi bi-eye"></i> Chi tiết
+                    </button>
+                    <!-- Nút Sửa -->
+                    <button type="button" class="btn btn-warning text-white" id="editButton" onclick="Account.loadModelEdit(@item.Id)">
+                        <i class="bi bi-pencil"></i> Sửa
+                    </button>
+                    <!-- Nút Xóa -->
+                    <button type="button" class="btn btn-danger" id="deleteButton" onclick="Account.deleteData(@item.Id)">
+                        <i class="bi bi-trash"></i> Xóa
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pagination-container">
+    <div class="page-size">
+        <div>
+            <label for="pageSize">Số dòng / trang: </label>
+            <select class="notSelect2" onchange="$('#pageSize').val($(this).val()); Account.loadData();">
+                @foreach (var size in pageSizes)
+                {
+                    if (size == pageSize)
+                    {
+                        <option value="@size" selected="selected">@size</option>
+                    }
+                    else
+                    {
+                        <option value="@size">@size</option>
+                    }
+                }
+            </select>
+
+        </div>
+    </div>
+
+    <ul class="pagination">
+        @* Nút về trang đầu *@
+        @if (pageCurrent > 1)
+        {
+            <li><a onclick="$('#page').val(1); Account.loadData();">«</a></li>
+        }
+
+        @* Nút lùi 1 *@
+        @if (pageCurrent > 1)
+        {
+            <li><a onclick="$('#page').val(@(pageCurrent - 1)); Account.loadData();" >‹</a></li>
+        }
+
+        @* Các nút số *@
+        @for (int i = startPage; i <= endPage; i++)
+        {
+            if (i == pageCurrent)
+            {
+                <li class="active"><span>@i</span></li>
+            }
+            else
+            {
+                <li><a onclick="$('#page').val(@i); Account.loadData();">@i</a></li>
+            }
+        }
+
+        @* Nút tiến 1 *@
+        @if (pageCurrent < pageNumber)
+        {
+            <li><a onclick="$('#page').val(@(pageCurrent + 1)); Account.loadData();" >›</a></li>
+        }
+
+        @* Nút tới trang cuối *@
+        @if (pageCurrent < pageNumber)
+        {
+            <li><a onclick="$('#page').val(@pageNumber); Account.loadData();" >»</a></li>
+        }
+    </ul>
+</div>

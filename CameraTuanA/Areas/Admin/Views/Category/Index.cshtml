@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CameraTuanA.Models.Category>
+
+@{
+    ViewData["Title"] = "Category";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="pagetitle">
+    <h1>Category</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Category</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-12">
+                            <div class="search-container row" id="divSearch">
+                                <div class=" col-3">
+                                    <input type="text" id="keySearch" name="keySearch" class="form-control" placeholder="Nhập từ khóa tìm kiếm">
+                                </div>
+                                <input type="hidden" id="page" name="page" value="1" />
+                                <input type="hidden" id="pageSize" name="pageSize" value="10" />
+                                <button type="button" class="btn btn-primary col-1" id="searchButton" onclick="Category.loadData()">
+                                    <i class="bi bi-search"></i> Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-12 text-end">
+                            <button type="button" class="btn btn-success" onclick="Category.loadModelAdd()">
+                                <i class="bi bi-plus-circle"></i> Add Category
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Table with stripped rows -->
+                    <div id="listdata">
+                        <!-- Data here -->
+                    </div>
+                    <!-- End Table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div id="target-div">
+
+</div>
+
+@section Scripts {
+    <script src="~/Appjs/Admin/Category.js"></script>
+}
+
+
+
+

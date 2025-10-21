@@ -1,0 +1,43 @@
+﻿@model List<CameraTuanA.Models.Product>
+@using System.Globalization
+
+<div class="featured-product mb-4">
+    <h4 class="mb-3">Sản phẩm nổi bật</h4>
+    @foreach(var item in Model)
+    {
+        <a class="featured-product-item" href="/SingleProduct/Index/@item.Id">
+            <div class="rounded me-4" style="width: 100px; height: 100px;">
+                <img src="@item.MainImage" class="img-fluid rounded" alt="Image">
+            </div>
+            <div>
+                <h6 class="mb-2">@item.ProductName</h6>
+                <div class="d-flex mb-2">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        if (item.RatingCount <= 0)
+                        {
+                            item.RatingScore = 5;
+                        }
+                        if (i <= item.RatingScore)
+                        {
+                            <i class="fa fa-star text-secondary"></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-star"></i>
+                        }
+                    }
+                </div>
+                <div class="d-flex mb-2">
+                    <h5 class="fw-bold me-2">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.OriginalPrice)</h5>
+                    <h5 class="text-danger text-decoration-line-through">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.SellingPrice)</h5>
+                </div>
+            </div>
+        </a>
+    }
+    
+    
+    <div class="d-flex justify-content-center my-4">
+        <a href="/product" class="btn btn-primary px-4 py-3 rounded-pill w-100">Xem thêm</a>
+    </div>
+</div>

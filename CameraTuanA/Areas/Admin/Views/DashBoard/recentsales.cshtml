@@ -1,0 +1,62 @@
+﻿@model List<Order>;
+@using System.Globalization
+<div class="col-12">
+    <div class="card recent-sales overflow-auto " style="min-height: 18vw;">
+
+        <div class="card-body">
+            <h5 class="card-title">Recent Sales <span></span></h5>
+
+            <table class="table table-borderless datatable">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+                            <th scope="row"><a href="">#@item.OrderCode</a></th>
+                            <td>@item.Account.FullName</td>
+                            <td><Address>@item.ShippingAddress</Address></td>
+                            <td>@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.TotalAmount)</td>
+                            <td>
+                                @switch (item.Status)
+                                {
+                                    case 0:
+                                        <span class="badge bg-dark-subtle">@EnumMethod.OrderStatusToString(0)</span>
+                                        break;
+                                    case 1:
+                                        <span class="badge bg-warning">@EnumMethod.OrderStatusToString(1)</span>
+                                        break;
+                                    case 2:
+                                        <span class="badge bg-primary">@EnumMethod.OrderStatusToString(2)</span>
+                                        break;
+                                    case 3:
+                                        <span class="badge bg-success">@EnumMethod.OrderStatusToString(3)</span>
+                                        break;
+                                    case 4:
+                                        <span class="badge bg-danger">@EnumMethod.OrderStatusToString(4)</span>
+                                        break;
+                                    case 5:
+                                        <span class="badge bg-danger">@EnumMethod.OrderStatusToString(5)</span>
+                                        break;
+                                    default:
+                                        <span class="badge bg-secondary">Unknown</span>
+                                        break;
+                                }                               
+                        </tr>
+                    }
+                    <tr></tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>

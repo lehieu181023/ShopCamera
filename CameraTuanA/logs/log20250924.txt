@@ -1,0 +1,11 @@
+2025-09-24 15:45:36.740 +07:00 [INF] [] Đã tạo Account mới: Name = Lê Hiếu
+2025-09-24 16:00:57.037 +07:00 [WRN] [] Nhập dữ liệu không hợp lệ
+2025-09-24 16:01:10.444 +07:00 [WRN] [] Nhập dữ liệu không hợp lệ
+2025-09-24 16:04:08.068 +07:00 [WRN] [] Nhập dữ liệu không hợp lệ
+2025-09-24 16:11:28.681 +07:00 [INF] [] Đã tạo Product mới: Name = CamSuper, Code = A123456
+2025-09-24 16:13:15.840 +07:00 [INF] [] Đã cập nhật Product: Id = 4, Name = CamSuper
+2025-09-24 16:13:40.749 +07:00 [INF] [] Đã thay đổi trạng thái Product: Id = 4, Status = False
+2025-09-24 16:13:41.973 +07:00 [INF] [] Đã thay đổi trạng thái Product: Id = 4, Status = True
+2025-09-24 17:44:55.715 +07:00 [INF] [] Đã thay đổi trạng thái Brand: Id = 7, Status = True
+2025-09-24 17:45:04.326 +07:00 [INF] [] Đã thay đổi trạng thái Product: Id = 4, Status = False
+2025-09-24 17:45:17.367 +07:00 [INF] [] Đã thay đổi trạng thái Product: Id = 4, Status = True

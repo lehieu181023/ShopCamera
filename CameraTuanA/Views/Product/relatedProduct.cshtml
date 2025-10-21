@@ -1,0 +1,60 @@
+﻿@model List<CameraTuanA.Models.Product>
+@using System.Globalization
+<div class="container-fluid related-product">
+    <div class="container">
+        <div class="mx-auto text-center pb-5" style="max-width: 700px;">
+            <h4 class="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius wow fadeInUp"
+                data-wow-delay="0.1s">
+                Sản phẩm liên quan
+            </h4>
+            <p class="wow fadeInUp" data-wow-delay="0.2s">Khám phá thêm những sản phẩm WiFi & Camera chất lượng, phù hợp với nhu cầu của bạn.</p>
+        </div>
+        <div class="related-carousel owl-carousel pt-4">
+            @foreach(var item in Model)
+            {
+                <div class="related-item rounded">
+                    <div class="related-item-inner border rounded">
+                        <div class="related-item-inner-item">
+                            <img src="@item.MainImage" class="img-fluid w-100 rounded-top" alt="">
+                            <div class="related-new">New</div>
+                            <div class="related-details">
+                                <a><i class="fa fa-eye fa-1x"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center rounded-bottom p-4">
+                            <a class="d-block mb-2">SmartCam</a>
+                            <a class="d-block h4">@item.ProductName</a>
+                            <del class="me-2 fs-5">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.OriginalPrice)</del>
+                            <span class="text-primary fs-5">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.SellingPrice)</span>
+                        </div>
+                    </div>
+                    <div class="related-item-add border border-top-0 rounded-bottom  text-center p-4 pt-0">
+                        <a onclick="addToCart(@item.Id)" class="btn btn-primary border-secondary rounded-pill py-2 px-4 mb-4">
+                            <i class="fas fa-shopping-cart me-2"></i> Add To Cart
+                        </a>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (item.RatingCount <= 0)
+                                    {
+                                        item.RatingScore = 5;
+                                    }
+                                    if (i <= item.RatingScore)
+                                    {
+                                        <i class="fa fa-star text-secondary"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fa fa-star"></i>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

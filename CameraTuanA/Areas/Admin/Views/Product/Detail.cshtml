@@ -1,0 +1,127 @@
+﻿@model CameraTuanA.Models.Product
+@using System.Globalization
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Chi tiết sản phẩm</h4>
+                <button type="button" class="close btn bg-transparent border-0" data-bs-dismiss="modal" onclick="closeModal()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <!-- Left Column -->
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Ảnh sản phẩm</label>
+                            <div class="border rounded p-2" style="min-height: 120px;">
+                                <!-- Product image display area -->
+                                @if (string.IsNullOrEmpty(Model.MainImage))
+                                {
+                                    <div class="text-center text-muted">
+                                        <i class="fas fa-image fa-3x mb-2"></i>
+                                        <p>Hình ảnh sản phẩm</p>
+                                    </div>
+                                }
+                                <img style="max-width:200px;max-height:200px" src="@Model.MainImage" />
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Mã sản phẩm</label>
+                            <p class="form-control-plaintext bg-light px-3 py-2 rounded" id="ProductCode">@Model.ProductCode</p>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Tên sản phẩm</label>
+                            <p class="form-control-plaintext bg-light px-3 py-2 rounded" id="ProductName">@Model.ProductName</p>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Hãng</label>
+                            <p class="form-control-plaintext bg-light px-3 py-2 rounded" id="BrandName">@Model.Brand.BrandName</p>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Loại</label>
+                            <p class="form-control-plaintext bg-light px-3 py-2 rounded" id="CategoryName">@Model.Category.CategoryName</p>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Trạng thái</label>
+                            @if (Model.Status)
+                            {
+                                <span class="badge bg-success" id="Status">Kích hoạt</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger" id="Status">Vô hiệu</span>
+                            } 
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Giá bán</label>
+                            <p class="form-control-plaintext bg-light px-3 py-2 rounded text-danger fw-bold" id="SellingPrice">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", Model.SellingPrice)</p>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Giá gốc</label>
+                            <p class="form-control-plaintext bg-light px-3 py-2 rounded text-muted" id="OriginalPrice">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", Model.OriginalPrice)</p>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Số lượng tồn kho</label>
+                            <p class="form-control-plaintext bg-light px-3 py-2 rounded" id="StockQuantity">@Model.StockQuantity sản phẩm</p>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Giới thiệu ngắn</label>
+                            <div class="bg-light p-3 rounded" style="min-height: 100px;">
+                                <p class="mb-0 text-pre-line" id="ShortDescription">@Model.ShortDescription</p>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Ngày tạo</label>
+                            <p class="form-control-plaintext bg-light px-3 py-2 rounded" id="CreatedAt">@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm:ss")</p>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Ngày cập nhập</label>
+                            <p class="form-control-plaintext bg-light px-3 py-2 rounded" id="UpdatedAt">@Model.UpdatedAt.ToString("dd/MM/yyyy HH:mm:ss")</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Full width sections -->
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Mô tả chi tiết</label>
+                            <div class="bg-light p-3 rounded" style="max-height: 150px; overflow-y: auto;">
+                                <p id="DetailedDescription" class="text-pre-line">@Model.DetailedDescription</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">Thông số kỹ thuật</label>
+                            <div class="bg-light p-3 rounded" style="max-height: 150px; overflow-y: auto;">
+                                <p class="text-pre-line">@Model.TechnicalSpecs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="btnclosemodel" data-bs-dismiss="modal">Đóng</button>
+            </div>
+
+        </div>
+    </div>
+</div>

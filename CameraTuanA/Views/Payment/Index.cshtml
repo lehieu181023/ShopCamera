@@ -1,0 +1,291 @@
+﻿@model List<CameraTuanA.Models.ShoppingCart>
+@using System.Globalization
+@{
+    ViewData["Title"] = "Thanh toán";
+    var user = ViewData["User"] as CameraTuanA.Models.Account;
+}
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6 wow fadeInUp" data-wow-delay="0.1s">Thanh toán</h1>
+    <ol class="breadcrumb justify-content-center mb-0 wow fadeInUp" data-wow-delay="0.3s">
+        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a href="#">Trang</a></li>
+        <li class="breadcrumb-item active text-white">Thanh toán</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+<!-- Searvices Start -->
+<div class="container-fluid px-0">
+    <div class="row g-0">
+        <div class="col-6 col-md-4 col-lg-2 border-start border-end wow fadeInUp" data-wow-delay="0.1s">
+            <div class="p-4">
+                <div class="d-inline-flex align-items-center">
+                    <i class="fa fa-sync-alt fa-2x text-primary"></i>
+                    <div class="ms-4">
+                        <h6 class="text-uppercase mb-2">Miễn phí đổi trả</h6>
+                        <p class="mb-0">Đảm bảo hoàn tiền trong vòng 30 ngày!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 border-end wow fadeInUp" data-wow-delay="0.2s">
+            <div class="p-4">
+                <div class="d-flex align-items-center">
+                    <i class="fab fa-telegram-plane fa-2x text-primary"></i>
+                    <div class="ms-4">
+                        <h6 class="text-uppercase mb-2">Miễn phí vẫn chuyển</h6>
+                        <p class="mb-0">Miễn phí vận chuyển cho tất cả đơn hàng</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 border-end wow fadeInUp" data-wow-delay="0.3s">
+            <div class="p-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-life-ring fa-2x text-primary"></i>
+                    <div class="ms-4">
+                        <h6 class="text-uppercase mb-2">Hỗ trợ 24/7</h6>
+                        <p class="mb-0">Chúng tôi hỗ trợ trực tuyến 24 giờ một ngày</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 border-end wow fadeInUp" data-wow-delay="0.4s">
+            <div class="p-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-credit-card fa-2x text-primary"></i>
+                    <div class="ms-4">
+                        <h6 class="text-uppercase mb-2">Nhận thẻ quà</h6>
+                        <p class="mb-0">Nhận quà khi đơn hàng trên 5.000.000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 border-end wow fadeInUp" data-wow-delay="0.5s">
+            <div class="p-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-lock fa-2x text-primary"></i>
+                    <div class="ms-4">
+                        <h6 class="text-uppercase mb-2">Thanh toán an toàn</h6>
+                        <p class="mb-0">Chúng tôi coi trọng sự an toàn của bạn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 border-end wow fadeInUp" data-wow-delay="0.6s">
+            <div class="p-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-blog fa-2x text-primary"></i>
+                    <div class="ms-4">
+                        <h6 class="text-uppercase mb-2">Dịch vụ trực tuyến</h6>
+                        <p class="mb-0">Sản phẩm có thể trả lại miễn phí trong 30 ngày</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Searvices End -->
+<!-- Checkout Page Start -->
+<div class="container-fluid bg-light overflow-hidden py-5">
+    <div class="container py-5">
+        <h1 class="mb-4 wow fadeInUp" data-wow-delay="0.1s">Thông tin thanh toán</h1>
+        <form asp-controller="Payment" asp-action="Create"
+              data-ajax="true"
+              data-ajax-begin="BlockUI()"
+              data-ajax-failure="UnBlockUI()"
+              data-ajax-method="POST"
+              data-ajax-success="Payment.PaySuccess"
+              id="basicForm"
+              method="post">
+            @Html.AntiForgeryToken()
+            <div class="row g-5">
+                <!-- Cột thông tin khách hàng -->
+                <div class="col-md-12 col-lg-6 col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="form-item w-100">
+                                <label class="form-label my-3">Họ và tên <sup>*</sup></label>
+                                <input type="text" class="form-control" name="RecipientName" placeholder="Nhập họ tên" value="@user?.FullName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <label class="form-label my-3">Địa chỉ <sup>*</sup></label>
+                        <input type="text" class="form-control" name="ShippingAddress" placeholder="Số nhà, tên đường" value="@user?.Address">
+                    </div>
+                    <div class="form-item">
+                        <label class="form-label my-3">Số điện thoại <sup>*</sup></label>
+                        <input type="tel" class="form-control" name="RecipientPhone" placeholder="Nhập số điện thoại" value="@user?.PhoneNumber">
+                    </div>
+                    <div class="form-item">
+                        <label class="form-label my-3">Email <sup>*</sup></label>
+                        <input type="email" class="form-control" name="RecipientEmail" placeholder="Nhập email" value="@user?.Email">
+                    </div>
+                    <hr>
+                    <div class="form-item">
+                        <textarea name="CustomerNotes" class="form-control" spellcheck="false" cols="30" rows="6"
+                                  placeholder="Ghi chú đơn hàng (không bắt buộc)"></textarea>
+                    </div>
+                </div>
+
+                <!-- Cột đơn hàng -->
+                <div class="col-md-12 col-lg-6 col-xl-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col" class="text-start">Sản phẩm</th>
+                                    <th scope="col">Mã</th>
+                                    <th scope="col">Giá</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Tổng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var item in Model)
+                                {
+                                    <tr class="text-center">
+                                        <th scope="row" class="text-start py-4">
+                                            @item.Product.ProductName
+                                        </th>
+                                        <td class="py-4">@item.Product.ProductCode</td>
+                                        <td class="py-4">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.Product.SellingPrice)</td>
+                                        <td class="py-4 text-center">@item.Quantity</td>
+                                        <td class="py-4">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.Product.SellingPrice * item.Quantity)</td>
+                                    </tr>
+                                }
+                                
+                                <tr>
+                                    <td colspan="3"></td>
+                                    <td class="py-4">
+                                        <p class="mb-0 text-dark py-2">Tạm tính</p>
+                                    </td>
+                                    <td class="py-4">
+                                        <div class="py-2 text-center border-bottom border-top">
+                                            <p class="mb-0 text-dark">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", Model.Sum(p => (p.Product.SellingPrice * p.Quantity)))</p>
+                                            <input type="hidden" name="TotalAmount" value="@(Model.Sum(p => (p.Product.SellingPrice * p.Quantity)))" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3"></td>
+                                    <td class="py-4">
+                                        <p class="mb-0 text-dark py-2">Phí vận chuyển</p>
+                                    </td>
+                                    <td class="py-4">
+                                        @* <div class="form-check text-start">
+                                            <input type="radio" class="form-check-input bg-primary border-0"
+                                                   id="Shipping-1" name="Shipping" value="Free">
+                                            <label class="form-check-label" for="Shipping-1">Miễn phí</label>
+                                        </div> *@
+                                        <div class="form-check text-start">
+                                            <input type="radio" class="form-check-input bg-primary border-0"
+                                                   id="Shipping-2" name="Shipping" value="Flat" disabled>
+                                            <label class="form-check-label" for="Shipping-2">Phí cố định: 30.000đ</label>
+                                            <input type="hidden" name="ShippingFee" value="30000" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3"></td>
+                                    <td class="py-4">
+                                        <p class="mb-0 text-dark text-uppercase py-2">Tổng cộng</p>
+                                    </td>
+                                    <td class="py-4">
+                                        <div class="py-2 text-center border-bottom border-top">
+                                            <p class="mb-0 text-dark">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", Model.Sum(p => (p.Product.SellingPrice * p.Quantity)) + 30000)</p>
+                                            <input type="hidden" name="FinalTotal" value="@(Model.Sum(p => (p.Product.SellingPrice * p.Quantity)) + 30000)" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Phương thức thanh toán -->
+                    <div class="row g-0 text-center align-items-center justify-content-center border-bottom py-2">
+                        <div class="col-12">
+                            <div class="form-check text-start my-2">
+                                <input type="radio" class="form-check-input bg-primary border-0" id="Transfer-1"
+                                       name="PaymentMethod" value="bank_transfer">
+                                <label class="form-check-label" for="Transfer-1">Chuyển khoản ngân hàng</label>
+                            </div>
+                            <p class="text-start text-dark">
+                                Vui lòng chuyển khoản theo thông tin tài khoản. Ghi rõ mã đơn hàng để tiện kiểm tra.
+                            </p>
+                        </div>
+                    </div>
+                    <div id="vietqr" class="text-center" style="display:none; margin-top:20px;">
+                        <h5>Quét mã VietQR để thanh toán</h5>
+                        <img id="vietqr-img"
+                             src="https://img.vietqr.io/image/VCB-0123456789-compact2.png?amount=99000&addInfo=DH123"
+                             alt="VietQR" class="img-fluid mx-auto d-block" style="max-width:300px;">
+                    </div>
+
+                    <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-2">
+                        <div class="col-12">
+                            <div class="form-check text-start my-2">
+                                <input type="radio" class="form-check-input bg-primary border-0" id="Delivery-1"
+                                       name="PaymentMethod" value="cod">
+                                <label class="form-check-label" for="Delivery-1">Thanh toán khi nhận hàng (COD)</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4 text-center align-items-center justify-content-center pt-4">
+                        <button type="submit"
+                                class="btn btn-primary border-secondary py-3 px-4 text-uppercase w-100 text-primary">
+                            Đặt hàng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Checkout Page End -->
+
+@section Scripts {
+
+    <script src="~/Appjs/Cart.js"></script>
+    <script>
+        document.querySelectorAll('input[name="Payment"]').forEach(item => {
+            item.addEventListener('change', function() {
+                if (this.value === 'Bank') {
+                    document.getElementById("vietqr").style.display = "block";
+                } else {
+                    document.getElementById("vietqr").style.display = "none";
+                }
+            });
+        });
+    </script>
+    <script>
+        $("#basicForm").validate({
+            rules: {
+                RecipientName: { required: true },
+                RecipientPhone: { required: true },
+                ShippingAddress: { required: true },
+                PaymentMethod: { required: true },
+                RecipientEmail: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                RecipientName: "Vui lòng nhập tên người nhận",
+                RecipientPhone: "Vui lòng nhập số điện thoại người nhận",
+                ShippingAddress: "Vui lòng nhập địa chỉ giao hàng",
+                RecipientEmail: {
+                    required: "Vui lòng nhập email",
+                    email: "Vui lòng nhập email hợp lệ"
+                },
+                PaymentMethod: "Vui lòng chọn phương thức thanh toán"
+            },
+            errorClass: "text-danger",
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            }
+        });
+
+    </script>
+}

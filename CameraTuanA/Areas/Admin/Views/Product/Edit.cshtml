@@ -1,0 +1,182 @@
+﻿@model CameraTuanA.Models.Product
+
+
+@{
+    var lstCategory = ViewData["Categories"] as List<CameraTuanA.Models.Category>;
+    var lstBrand = ViewData["Brands"] as List<CameraTuanA.Models.Brand>;
+    var selectLstCategory = new SelectList(lstCategory, "Id", "CategoryName");
+    var selectLstBrand = new SelectList(lstBrand, "Id", "BrandName");
+}
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Sửa</h4>
+                <button type="button" class="close btn bg-transparent border-0" data-bs-dismiss="modal" onclick="closeModal()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form asp-area="Admin" asp-controller="Product" asp-action="EditPost"
+                      class="form-horizontal"
+                      data-ajax="true"
+                      data-ajax-begin="BlockUI()"
+                      data-ajax-failure="UnBlockUI()"
+                      data-ajax-method="POST"
+                      data-ajax-success="Product.successAction"
+                      id="basicForm"
+                      method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="Logo" class="control-label col-md-2 text-right">Ảnh</label>
+                                <div class="col-md-10">
+                                    @Html.Partial("~/Areas/Admin/Views/Shared/UploadFilePage.cshtml", new CameraTuanA.Models.JqueryUploadModel { Name = "MainImage",Value = Model.MainImage })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="ProductCode" class="control-label col-md-2 text-right">Mã sản phẩm <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" asp-for="ProductCode" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="ProductName" class="control-label col-md-2 text-right">Tên sản phẩm <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" asp-for="ProductName" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="ProductName" class="control-label col-md-2 text-right">Hãng <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    @Html.DropDownList("BrandId", selectLstBrand, "-- Chọn hãng --", new { @class = "form-control", @required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="ProductName" class="control-label col-md-2 text-right">Loại  <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    @Html.DropDownList("CategoryId", selectLstCategory, "-- Chọn loại --", new { @class = "form-control", @required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="ShortDescription" class="control-label col-md-2 text-right">Giới thiệu ngắn</label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" asp-for="ShortDescription"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="DetailedDescription" class="control-label col-md-2 text-right">Giới thiệu chi tiết</label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" asp-for="DetailedDescription"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="TechnicalSpecs" class="control-label col-md-2 text-right">Thông số sản phẩm</label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" asp-for="TechnicalSpecs"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="SellingPrice" class="control-label col-md-2 text-right">Giá bán <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <input type="number" class="form-control" asp-for="SellingPrice" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="OriginalPrice" class="control-label col-md-2 text-right">Giá gốc </label>
+                                <div class="col-md-10">
+                                    <input type="number" class="form-control" asp-for="OriginalPrice">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="StockQuantity" class="control-label col-md-2 text-right">Tồn kho </label>
+                                <div class="col-md-10">
+                                    <input type="number" class="form-control" asp-for="StockQuantity">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="Status" class="control-label col-md-2 text-right">Trạng thái</label>
+                                <div class="col-md-10">
+                                    <div class="form-check">
+                                        <input class="form-check-input" id="Status" type="checkbox" name="Status" @(Model.Status?"checked":"") value="true">
+                                        <label class="form-check-label" for="Status">
+                                            Kích hoạt
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">Gửi</label>
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Gửi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form><!-- End General Form Elements -->
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnclosemodel" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#basicForm").validate({
+        rules: {
+            ProductName: { required: true },
+            ProductCode: { required: true },
+            BrandId: { required: true },
+            CategoryId: { required: true },
+            SellingPrice: { required: true, number: true, min: 0 },
+
+        },
+        messages: {
+            ProductName: "Vui lòng nhập tên sản phẩm.",
+            ProductCode: "Vui lòng nhập mã sản phẩm.",
+            BrandId: "Vui lòng chọn hãng.",
+            CategoryId: "Vui lòng chọn loại.",
+            SellingPrice: {
+                required: "Vui lòng nhập giá bán.",
+                number: "Vui lòng nhập số hợp lệ.",
+                min: "Giá bán phải lớn hơn hoặc bằng 0."
+            },
+        },
+        errorClass: "text-danger",
+        errorPlacement: function (error, element) {
+            error.insertAfter(element);
+        }
+    });
+</script>

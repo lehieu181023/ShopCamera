@@ -1,0 +1,112 @@
+﻿@model CameraTuanA.Models.Account
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Chi tiết</h4>
+                <button type="button" class="close btn bg-transparent border-0" data-bs-dismiss="modal" onclick="closeModal()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="Username" class="control-label col-md-2 text-right">Tài khoản <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <p>@Model.Username</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="Role" class="control-label col-md-2 text-right">Vai trò <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                @if (Model.Role.Equals("admin"))
+                                {
+                                    <p>Quản trị viên</p>
+                                }
+                                else
+                                {
+                                    <p>Khách hàng</p>       
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="FullName" class="control-label col-md-2 text-right">Họ và tên <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <p>@Model.FullName</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="PhoneNumber" class="control-label col-md-2 text-right">Số điện thoại <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <a href="javascript:void(0)"
+                                   onclick="copyPhone('@Model.PhoneNumber')"
+                                   class="text-primary" 
+                                   style="cursor:pointer">@Model.PhoneNumber</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="Email" class="control-label col-md-2 text-right">Email </label>
+                            <div class="col-md-10">
+                                <p>@Model.Email</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="addr" class="control-label col-md-2 text-right">Địa chỉ <span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <p>@Model.Address</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row mb-3">
+                            <label for="Status" class="control-label col-md-2 text-right">Trạng thái</label>
+                            <div class="col-md-10">
+                                @if (Model.Status)
+                                {
+                                    <p class="text-primary">Kích hoạt</p>
+                                }
+                                else
+                                {
+                                    <p class="text-danger">Vô hiệu</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnclosemodel" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function copyPhone(phone) {
+      navigator.clipboard.writeText(phone)
+        .then(() => {
+          showToast("Đã copy số điện thoại: " + phone, "success");
+        })
+        .catch(err => {
+          console.error('Copy lỗi', err);
+          showToast("Copy thất bại", "error");
+        });
+    }
+
+</script>

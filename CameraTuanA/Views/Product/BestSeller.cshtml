@@ -1,0 +1,47 @@
+﻿@model List<CameraTuanA.Models.Product>
+@using System.Globalization
+<div class="container-fluid products pt-5">
+    <div class="container products-mini py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 700px;">
+            <h4 class="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius wow fadeInUp"
+                data-wow-delay="0.1s">
+                Sản phẩm bán chạy
+            </h4>
+            <p class="mb-0 wow fadeInUp" data-wow-delay="0.2s">Bạn muốn tìm kiếm những sản phẩm bán chạy nhất của chúng tôi hãy bấm ngay vào mua hàng chúng tôi có những sản phẩm bán chạy nhất để bạn dễ dàng lựa chọn.</p>
+        </div>
+        <div class="row g-4">
+            @foreach (var item in (Model ?? Enumerable.Empty<Product>()).Take(6))
+            {
+                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="products-mini-item border">
+                        <div class="row g-0">
+                            <div class="col-5">
+                                <div class="products-mini-img border-end h-100">
+                                    <img src="@item.MainImage" class="img-fluid w-100 h-100" alt="@item.ProductName">
+                                    <div class="products-mini-icon rounded-circle bg-primary">
+                                        <a href="@Url.Action("SingleProduct", "Product", new { Id = item.Id })"><i class="fa fa-eye fa-1x text-white"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-7">
+                                <div class="products-mini-content p-3">
+                                    <a class="d-block mb-2">Camera</a>
+                                    <a href="/SingelProduct/@item.Id" class="d-block h4">@item.ProductName</a>
+                                    <del class="me-2 fs-5">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.OriginalPrice)</del>
+                                    <span class="text-primary fs-5">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.SellingPrice)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products-mini-add border p-3">
+                            <a onclick="addToCart(@item.Id)" class="btn btn-primary border-secondary rounded-pill py-2 px-4">
+                                <i class="fas fa-shopping-cart me-2"></i> Add To Cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>

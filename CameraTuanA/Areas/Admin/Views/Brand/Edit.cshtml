@@ -1,0 +1,107 @@
+﻿@model CameraTuanA.Models.Brand
+
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Sửa</h4>
+                <button type="button" class="close btn bg-transparent border-0" data-bs-dismiss="modal" onclick="closeModal()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form asp-area="Admin" asp-controller="Brand" asp-action="EditPost"
+                      class="form-horizontal"
+                      data-ajax="true"
+                      data-ajax-begin="BlockUI()"
+                      data-ajax-failure="UnBlockUI()"
+                      data-ajax-method="POST"
+                      data-ajax-success="brand.successAction"
+                      id="basicForm"
+                      method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="Logo" class="control-label col-md-2 text-right">Logo</label>
+                                <div class="col-md-10">
+                                    @Html.Partial("~/Areas/Admin/Views/Shared/UploadFilePage.cshtml", new CameraTuanA.Models.JqueryUploadModel { Name = "Logo",Value = Model.Logo })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="BrandName" class="control-label col-md-2 text-right">Tên hãng <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="BrandName" id="BrandName" value="@Model.BrandName" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="Description" class="control-label col-md-2 text-right">Giới thiệu</label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" name="Description" id="Description">@Model.Description</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="Website" class="control-label col-md-2 text-right">Trang web </label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="Website" id="Website" @Model.Website>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="Status" class="control-label col-md-2 text-right">Trạng thái</label>
+                                <div class="col-md-10">
+                                    <div class="form-check">
+                                        <input class="form-check-input" id="Status" type="checkbox" name="Status" @(Model.Status?"checked":"") value="true">
+                                        <label class="form-check-label" for="Status">
+                                            Kích hoạt
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">Gửi</label>
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Gửi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form><!-- End General Form Elements -->
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnclosemodel" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#basicForm").validate({
+        rules: {
+            BrandName: { required: true },
+        },
+        messages: {
+            BrandName: "Vui lòng nhập tên hãng.",
+        },
+        errorClass: "text-danger",
+        errorPlacement: function (error, element) {
+            error.insertAfter(element);
+        }
+    });
+</script>

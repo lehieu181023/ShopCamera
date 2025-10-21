@@ -1,0 +1,257 @@
+﻿
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Thêm</h4>
+                <button type="button" class="close btn bg-transparent border-0" data-bs-dismiss="modal" onclick="closeModal()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form asp-area="Admin" asp-controller="Account" asp-action="Create"
+                        class="form-horizontal"
+                        data-ajax="true"
+                        data-ajax-begin="BlockUI()"
+                        data-ajax-failure="UnBlockUI()"
+                        data-ajax-method="POST"
+                        data-ajax-success="Account.successAction"
+                        id="basicForm"
+                        method="post"
+                        >
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="Username" class="control-label col-md-2 text-right">Tài khoản <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="Username" id="Username" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="Password" class="control-label col-md-2 text-right">Mật khẩu <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <input type="password" class="form-control" name="Password" id="Password" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="Role" class="control-label col-md-2 text-right">Vai trò <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <select id="Role" name="Role" required>
+                                        <option value="">-- Chọn vai trò --</option>
+                                        <option value="admin">Quản trị viên</option>
+                                        <option value="customer">Khách hàng</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="FullName" class="control-label col-md-2 text-right">Họ và tên <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="FullName" id="FullName" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="PhoneNumber" class="control-label col-md-2 text-right">Số điện thoại <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <input type="tel" class="form-control" name="PhoneNumber" id="PhoneNumber" required placeholder="Nhập số điện thoại (VD: 0987654321)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="Email" class="control-label col-md-2 text-right">Email </label>
+                                <div class="col-md-10">
+                                    <input type="email" class="form-control" name="Email" id="Email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="addr" class="control-label col-md-2 text-right">Địa chỉ <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <div class="position-relative">
+                                        <input id="addr" name="Address" class="form-control" autocomplete="off" placeholder="Nhập địa chỉ (ví dụ: 'Hoàn Kiếm, Hà Nội')" required>
+                                        <ul id="addr-list" class="list-group position-absolute w-100" style="z-index:1050; display:none; max-height:300px; overflow:auto;"></ul>
+                                    </div>
+
+                                    <!-- hidden fields to store lat/lon (if bạn cần) -->
+                                    <input type="hidden" id="lat" name="lat">
+                                    <input type="hidden" id="lon" name="lon">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label for="Status" class="control-label col-md-2 text-right">Trạng thái</label>
+                                <div class="col-md-10">
+                                    <div class="form-check">
+                                        <input class="form-check-input" id="Status" type="checkbox" name="Status" checked value="true">
+                                        <label class="form-check-label" for="Status">
+                                            Kích hoạt
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">Gửi</label>
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Gửi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form><!-- End General Form Elements -->
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnclosemodel" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#basicForm").validate({
+        rules: {
+            Username: { required: true },
+            Password: { required: true },
+            FullName: { required: true },
+            Email: { email: true },
+            Phone: {
+                required: true,
+                pattern: /(0|\+84)[0-9]{8,9}/
+            },
+            Role:{ required: true },
+            addr:{required: true}
+        },
+        messages: {
+            Username: "Vui lòng nhập tài khoản.",
+            Password: "Vui lòng nhập mật khẩu.",
+            FullName: "Vui lòng nhập tên người dùng.",
+            Email: {
+                email: "Địa chỉ email không hợp lệ."
+            },
+            Phone: "Vui lòng nhập số điện thoại hợp lệ.",
+            Role: "Vui lòng chọn vai trò.",
+            addr: "Vui lòng nhập địa chỉ."
+        },
+        errorClass: "text-danger",
+        errorPlacement: function (error, element) {
+            error.insertAfter(element);
+        }
+    });
+</script>
+
+<script>
+    // Debounce helper
+    function debounce(fn, delay) {
+      let t;
+      return (...args) => {
+        clearTimeout(t);
+        t = setTimeout(() => fn(...args), delay);
+      };
+    }
+
+    const input = document.getElementById('addr');
+    const list = document.getElementById('addr-list');
+    const latInput = document.getElementById('lat');
+    const lonInput = document.getElementById('lon');
+
+    // Gọi Nominatim
+    async function searchAddress(q) {
+      if (!q || q.length < 3) return [];
+      // chú ý: thêm &addressdetails=1 nếu cần cấu trúc address
+      const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(q)}&limit=6&countrycodes=vn`;
+      try {
+        const res = await fetch(url, {
+          headers: { 'Accept-Language': 'vi' } // trả về tiếng vi nếu có
+        });
+        if (!res.ok) return [];
+        const data = await res.json();
+        return data;
+      } catch (e) {
+        console.error(e);
+        return [];
+      }
+    }
+
+    function renderResults(items) {
+      list.innerHTML = '';
+      if (!items.length) {
+        list.style.display = 'none';
+        return;
+      }
+      items.forEach(it => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item list-group-item-action';
+        li.style.cursor = 'pointer';
+        li.textContent = it.display_name;
+        li.dataset.lat = it.lat;
+        li.dataset.lon = it.lon;
+        li.dataset.display = it.display_name;
+        li.addEventListener('click', () => {
+          input.value = it.display_name;
+          latInput.value = it.lat;
+          lonInput.value = it.lon;
+          list.style.display = 'none';
+        });
+        list.appendChild(li);
+      });
+      list.style.display = 'block';
+    }
+
+    // Tự ẩn khi click ngoài
+    document.addEventListener('click', (e) => {
+      if (!input.contains(e.target) && !list.contains(e.target)) {
+        list.style.display = 'none';
+      }
+    });
+
+    const handleInput = debounce(async () => {
+      const q = input.value.trim();
+      if (q.length < 3) { list.style.display = 'none'; return; }
+      const items = await searchAddress(q);
+      renderResults(items);
+    }, 300);
+
+    input.addEventListener('input', () => {
+      // xóa lat/lon khi user gõ lại
+      latInput.value = '';
+      lonInput.value = '';
+      handleInput();
+    });
+
+    // Hỗ trợ phím mũi tên + Enter để chọn (tùy chọn)
+    let current = -1;
+    input.addEventListener('keydown', (e) => {
+      const children = Array.from(list.children);
+      if (list.style.display === 'none' || children.length === 0) return;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        current = Math.min(current + 1, children.length - 1);
+        children.forEach((c, i) => c.classList.toggle('active', i === current));
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        current = Math.max(current - 1, 0);
+        children.forEach((c, i) => c.classList.toggle('active', i === current));
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (current >= 0 && children[current]) children[current].click();
+      }
+    });
+
+</script>

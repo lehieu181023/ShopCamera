@@ -1,0 +1,293 @@
+﻿@{
+    ViewData["Title"] = "Sản phẩm";
+    ViewData["menuSelect"] = "sanpham";
+}
+
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6 wow fadeInUp" data-wow-delay="0.1s">Shop Page</h1>
+    <ol class="breadcrumb justify-content-center mb-0 wow fadeInUp" data-wow-delay="0.3s">
+        <li class="breadcrumb-item"><a >Trang chủ</a></li>
+        <li class="breadcrumb-item"><a >Trang</a></li>
+        <li class="breadcrumb-item active text-white">Cửa hàng</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+<!-- Searvices Start -->
+<div class="container-fluid px-0">
+    <div class="row g-0">
+        <div class="col-6 col-md-4 col-lg-2 border-start border-end wow fadeInUp" data-wow-delay="0.1s">
+            <div class="p-4">
+                <div class="d-inline-flex align-items-center">
+                    <i class="fa fa-sync-alt fa-2x text-primary"></i>
+                    <div class="ms-4">
+                        <h6 class="text-uppercase mb-2">Miễn phí đổi trả</h6>
+                        <p class="mb-0">Đảm bảo hoàn tiền trong vòng 30 ngày!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 border-end wow fadeInUp" data-wow-delay="0.2s">
+            <div class="p-4">
+                <div class="d-flex align-items-center">
+                    <i class="fab fa-telegram-plane fa-2x text-primary"></i>
+                    <div class="ms-4">
+                        <h6 class="text-uppercase mb-2">Miễn phí vẫn chuyển</h6>
+                        <p class="mb-0">Miễn phí vận chuyển cho tất cả đơn hàng</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 border-end wow fadeInUp" data-wow-delay="0.3s">
+            <div class="p-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-life-ring fa-2x text-primary"></i>
+                    <div class="ms-4">
+                        <h6 class="text-uppercase mb-2">Hỗ trợ 24/7</h6>
+                        <p class="mb-0">Chúng tôi hỗ trợ trực tuyến 24 giờ một ngày</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 border-end wow fadeInUp" data-wow-delay="0.4s">
+            <div class="p-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-credit-card fa-2x text-primary"></i>
+                    <div class="ms-4">
+                        <h6 class="text-uppercase mb-2">Nhận thẻ quà</h6>
+                        <p class="mb-0">Nhận quà khi đơn hàng trên 5.000.000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 border-end wow fadeInUp" data-wow-delay="0.5s">
+            <div class="p-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-lock fa-2x text-primary"></i>
+                    <div class="ms-4">
+                        <h6 class="text-uppercase mb-2">Thanh toán an toàn</h6>
+                        <p class="mb-0">Chúng tôi coi trọng sự an toàn của bạn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 border-end wow fadeInUp" data-wow-delay="0.6s">
+            <div class="p-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-blog fa-2x text-primary"></i>
+                    <div class="ms-4">
+                        <h6 class="text-uppercase mb-2">Dịch vụ trực tuyến</h6>
+                        <p class="mb-0">Sản phẩm có thể trả lại miễn phí trong 30 ngày</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Searvices End -->
+<!-- Shop Page Start -->
+@{
+    var lstCatagory = ViewData["Categories"] as List<Category>;
+}
+<div class="container-fluid shop py-5">
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="product-categories mb-4">
+                    <h4>Danh mục sản phẩm</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            <div class="categories-item">
+                                <a class="text-dark" onclick="$('#categoryId').val('0'); Product.loadData()">
+                                    <i class="fas fa-apple-alt text-secondary me-2"></i>
+                                    Tất cả
+                                </a>
+                                <span>(@lstCatagory.Count)</span>
+                            </div>
+                        </li>
+                        @foreach (var item in lstCatagory)
+                        {
+                            <li>
+                                <div class="categories-item">
+                                    <a class="text-dark" onclick="$('#categoryId').val('@item.Id'); Product.loadData()">
+                                        <i class="fas fa-apple-alt text-secondary me-2"></i>
+                                        @item.CategoryName
+                                    </a>
+                                    <span>(@item.Products.Count)</span>
+                                </div>
+                            </li>
+                        
+                        }
+                        
+                        
+                    </ul>
+                </div>
+                <div id="featuredProduct"></div>
+                @* <div class="price mb-4">
+                    <h4 class="mb-2">Giá</h4>
+                    <input type="range" class="form-range w-100" id="rangeInput" name="rangeInput" min="0" max="500"
+                           value="0" oninput="amount.value=rangeInput.value">
+                    <output id="amount" name="amount" min-velue="0" max-value="500" for="rangeInput">0</output>
+                    <div class=""></div>
+                </div>
+
+                <div class="featured-product mb-4">
+                    <h4 class="mb-3">Sản phẩm nổi bật</h4>
+                    <div class="featured-product-item">
+                        <div class="rounded me-4" style="width: 100px; height: 100px;">
+                            <img src="img/product-3.png" class="img-fluid rounded" alt="Image">
+                        </div>
+                        <div>
+                            <h6 class="mb-2">SmartPhone</h6>
+                            <div class="d-flex mb-2">
+                                <i class="fa fa-star text-secondary"></i>
+                                <i class="fa fa-star text-secondary"></i>
+                                <i class="fa fa-star text-secondary"></i>
+                                <i class="fa fa-star text-secondary"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <h5 class="fw-bold me-2">2.99 $</h5>
+                                <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-product-item">
+                        <div class="rounded me-4" style="width: 100px; height: 100px;">
+                            <img src="img/product-4.png" class="img-fluid rounded" alt="Image">
+                        </div>
+                        <div>
+                            <h6 class="mb-2">Smart Camera</h6>
+                            <div class="d-flex mb-2">
+                                <i class="fa fa-star text-secondary"></i>
+                                <i class="fa fa-star text-secondary"></i>
+                                <i class="fa fa-star text-secondary"></i>
+                                <i class="fa fa-star text-secondary"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <h5 class="fw-bold me-2">2.99 $</h5>
+                                <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-product-item">
+                        <div class="rounded me-4" style="width: 100px; height: 100px;">
+                            <img src="img/product-5.png" class="img-fluid rounded" alt="Image">
+                        </div>
+                        <div>
+                            <h6 class="mb-2">Camera Leance</h6>
+                            <div class="d-flex mb-2">
+                                <i class="fa fa-star text-secondary"></i>
+                                <i class="fa fa-star text-secondary"></i>
+                                <i class="fa fa-star text-secondary"></i>
+                                <i class="fa fa-star text-secondary"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <h5 class="fw-bold me-2">2.99 $</h5>
+                                <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center my-4">
+                        <a  class="btn btn-primary px-4 py-3 rounded-pill w-100">Xem thêm</a>
+                    </div>
+                </div>
+                <a >
+                    <div class="position-relative">
+                        <img src="img/product-banner-2.jpg" class="img-fluid w-100 rounded" alt="Image">
+                        <div class="text-center position-absolute d-flex flex-column align-items-center justify-content-center rounded p-4"
+                             style="width: 100%; height: 100%; top: 0; right: 0; background: rgba(242, 139, 0, 0.3);">
+                            <h5 class="display-6 text-primary">Giảm giá</h5>
+                            <h4 class="text-secondary">Có thể lên tới 50%</h4>
+                            <a  class="btn btn-primary rounded-pill px-4">Mua ngay</a>
+                        </div>
+                    </div>
+                </a>
+                <div class="product-tags py-4">
+                    <h4 class="mb-3">TỪ KHÓA SẢN PHẨM</h4>
+                    <div class="product-tags-items bg-light rounded p-3">
+                        <a  class="border rounded py-1 px-2 mb-2">Mới</a>
+                        <a  class="border rounded py-1 px-2 mb-2">Khuyến mãi</a>
+                        <a  class="border rounded py-1 px-2 mb-2">Router WiFi</a>
+                        <a  class="border rounded py-1 px-2 mb-2">Mesh WiFi</a>
+                        <a  class="border rounded py-1 px-2 mb-2">Camera trong nhà</a>
+                        <a  class="border rounded py-1 px-2 mb-2">Camera ngoài trời</a>
+                        <a  class="border rounded py-1 px-2 mb-2">IP Camera</a>
+                        <a  class="border rounded py-1 px-2 mb-2">Đầu ghi hình</a>
+                        <a  class="border rounded py-1 px-2 mb-2">Ổ cứng lưu trữ</a>
+                        <a  class="border rounded py-1 px-2 mb-2">Phụ kiện</a>
+                    </div>
+                </div> *@
+            </div>
+            <div class="col-lg-9 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="rounded mb-4 position-relative">
+                    <img src="img/product-banner-3.jpg" class="img-fluid rounded w-100" style="height: 250px;"
+                         alt="Image">
+                    <div class="position-absolute rounded d-flex flex-column align-items-center justify-content-center text-center"
+                         style="width: 100%; height: 250px; top: 0; left: 0; background: rgba(242, 139, 0, 0.3);">
+                        <h4 class="display-5 text-primary">SALE</h4>
+                        <h3 class="display-4 text-white mb-4">Get UP To 50% Off</h3>
+                        <a  class="btn btn-primary rounded-pill">Shop Now</a>
+                    </div>
+                </div>
+                <div class="row g-4" id="divSearch">
+                    <div class="col-xl-7">
+                        <div class="input-group w-100 mx-auto d-flex">
+                            <input type="search" name="keySearch" class="form-control p-3" placeholder="keywords"
+                                   aria-describedby="search-icon-1" onchange="Product.loadData()">
+                            <span id="search-icon-1" class="input-group-text p-3">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="categoryId" name="categoryId" value="0" />
+                    <input type="hidden" id="page" name="page" value="1" />
+                    <div class="col-xl-3 text-end">
+                        <div class="bg-light ps-3 py-3 rounded d-flex justify-content-between">
+                            <label for="SortBy">Sort By:</label>
+                            <select name="SortBy" id="SortBy"
+                                    class="border-0 form-select-sm bg-light me-3" onchange="Product.loadData()">
+                                <option value="">Mặc định</option>
+                                <option value="name">Tên</option>
+                                <option value="rating">Đánh giá</option>
+                                <option value="Popularity">Độ phổ biến</option>
+                                <option value="price_asc">Thấp đến cao</option>
+                                <option value="price_dsc">Cao đến thấp</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xl-2">
+                        <ul class="nav nav-pills d-inline-flex text-center py-2 px-2 rounded bg-light mb-4">
+                            <li class="nav-item me-4">
+                                <a class="bg-light" data-bs-toggle="pill" href="#tab-5">
+                                    <i class="fas fa-th fa-3x text-primary"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="bg-light" data-bs-toggle="pill" href="#tab-6">
+                                    <i class="fas fa-bars fa-3x text-primary"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="listdata">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Shop Page End -->
+@section Scripts {
+    <script src="~/Appjs/Product.js"></script>
+    <script>
+        $(function() {
+            $("#featuredProduct").load("/Product/featuredProduct");
+        });
+    </script>
+}
+
+
