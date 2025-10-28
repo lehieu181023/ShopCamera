@@ -722,9 +722,7 @@ C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\5h7tva9ims-
 C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\q1mv1elsgx-yqjadrqv8h.gz
 C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\xgvy5v97g5-ygdf1wakqx.gz
 C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\nnymfm2zjb-yxnjb9pmh1.gz
-C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\ihphpo8sse-ge5ha74i67.gz
 C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\homn1g2snb-atcas3q67h.gz
-C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\y38pzankic-bz1hqm0ly2.gz
 C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\4ivjnusby1-kryym8p5f5.gz
 C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\ebdawj1r69-rrupqaswi7.gz
 C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\n0y3frp453-r1hye14rqe.gz
@@ -756,3 +754,5 @@ C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\tybeu7skzl-
 C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\s1u7kdaok9-8v6ilhvo38.gz
 C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\uvacaz0380-51yw1tfsp9.gz
 C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\daip2r1jtm-ya7lg6q86k.gz
+C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\y38pzankic-mmgrr85vsl.gz
+C:\w\CameraTuanA\CameraTuanA\CameraTuanA\obj\Debug\net9.0\compressed\ihphpo8sse-dky7ls28ug.gz

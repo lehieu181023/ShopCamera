@@ -15,6 +15,7 @@
         startPage = Math.Max(1, endPage - maxPages + 1);
     }
 }
+
 <div class="tab-content">
     <div id="tab-5" class="tab-pane fade show p-0 active">
         <div class="row g-4 product">
@@ -113,7 +114,7 @@
                                     <img src="@item.MainImage" style="min-height:170px;min-width:300px" class="img-fluid w-100 h-100"
                                      alt="Image">
                                 <div class="products-mini-icon rounded-circle bg-primary">
-                                    <a href="@Url.Action("SingleProduct", "Product", new { Id = item.Id })"><i class="fa fa-eye fa-1x text-white"></i></a>
+                                    <a href="@Url.Action("Index", "SingleProduct", new { Id = item.Id })"><i class="fa fa-eye fa-1x text-white"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -172,3 +173,14 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        let selectedId = $('#categoryId').val();
+        $('.categories-item a').removeClass('text-primary').addClass('text-dark');
+        $('#categories-item-' + selectedId).removeClass('text-dark').addClass('text-primary');
+
+        let selectedBrId = $('#BrandId').val();
+        $('.Brands-item a').removeClass('text-primary').addClass('text-dark');
+        $('#Brands-item-' + selectedBrId).removeClass('text-dark').addClass('text-primary');
+    });
+</script>

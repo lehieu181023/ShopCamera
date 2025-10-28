@@ -1,0 +1,25 @@
+﻿@model List<CameraTuanA.Models.Brand>
+<div class="container-fluid brand-carousel-section py-5">
+    <div class="container">
+        <div class="mx-auto text-center pb-4" style="max-width: 700px;">
+            <h4 class="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius wow fadeInUp" data-wow-delay="0.1s">
+                Đối tác & Thương hiệu
+            </h4>
+            <p class="wow fadeInUp" data-wow-delay="0.2s">
+                Các thương hiệu hàng đầu mà chúng tôi hợp tác cung cấp sản phẩm.
+            </p>
+        </div>
+
+        <div class="brand-carousel owl-carousel pt-3">
+            @foreach(var item in Model)
+            {
+                <div class="brand-item text-center">
+                    <img src="@(item.Logo)" alt="@item.BrandName" class="brand-logo">
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+

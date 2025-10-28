@@ -216,14 +216,44 @@
 <!-- Product Banner End -->
 <!-- Bestseller Products Start -->
 <div id="bestsellers"></div>
-
+<div id="Brands"></div>
 <!-- Bestseller Products End -->
+<style>
+    .brand-logo {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid #ddd;
+        transition: all 0.3s ease;
+        background-color: white;
+        padding: 10px;
+    }
+</style>
 @section Scripts {
     <script>
         $(function() {
             $("#products").load("/Product/products");
             $("#bestsellers").load("/Product/bestseller");
+            $("#Brands").load("/Product/Brands", function () {
+                $(".brand-carousel").owlCarousel({
+                    autoplay: true,
+                    smartSpeed: 1000,
+                    margin: 25,
+                    loop: true,
+                    dots: false,
+                    nav: false,
+                    responsive: {
+                        0: { items: 2 },
+                        576: { items: 3 },
+                        768: { items: 4 },
+                        992: { items: 5 },
+                        1200: { items: 6 }
+                    }
+                });
+            });
         });
+
     </script>
 }
 

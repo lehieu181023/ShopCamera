@@ -606,6 +606,20 @@
     color: var(--bs-primary) !important;
 }
 
+.shop .product-Brands .Brands-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+    .shop .product-Brands .Brands-item a {
+        transition: 0.5s;
+    }
+
+        .shop .product-Brands .Brands-item a:hover {
+            color: var(--bs-primary) !important;
+        }
+
 .shop .product-color .product-color-item {
     display: flex;
     padding: 10px 0;

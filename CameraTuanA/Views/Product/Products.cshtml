@@ -47,12 +47,12 @@
                                                 <div class="product-new">New</div>
                                             }
                                             <div class="product-details">
-                                                <a href="/SingleProduct/@item.Id"><i class="fa fa-eye fa-1x"></i></a>
+                                                <a href="@Url.Action("Index", "SingleProduct", new { Id = item.Id })"><i class="fa fa-eye fa-1x"></i></a>
                                             </div>
                                         </div>
                                         <div class="text-center rounded-bottom p-4">
                                             <a class="d-block mb-2">Camera</a>
-                                            <a href="/SingleProduct/@item.Id" class="d-block h4">@item.ProductName</a>
+                                            <a href="@Url.Action("Index", "SingleProduct", new { Id = item.Id })" class="d-block h4">@item.ProductName</a>
                                             <del class="me-2 fs-5">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.OriginalPrice)</del>
                                             <span class="text-primary fs-5">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.SellingPrice)</span>
                                         </div>
@@ -102,12 +102,12 @@
                                                 <div class="product-new">New</div>
                                             }
                                             <div class="product-details">
-                                                <a href="/SingleProduct/@item.Id"><i class="fa fa-eye fa-1x"></i></a>
+                                                <a href="@Url.Action("Index", "SingleProduct", new { Id = item.Id })"><i class="fa fa-eye fa-1x"></i></a>
                                             </div>
                                         </div>
                                         <div class="text-center rounded-bottom p-4">
                                             <a class="d-block mb-2">Camera</a>
-                                            <a href="/SingleProduct/@item.Id" class="d-block h4">@item.ProductName</a>
+                                            <a href="@Url.Action("Index", "SingleProduct", new { Id = item.Id })" class="d-block h4">@item.ProductName</a>
                                             <del class="me-2 fs-5">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.OriginalPrice)</del>
                                             <span class="text-primary fs-5">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.SellingPrice)</span>
                                         </div>
@@ -156,12 +156,12 @@
                                                 <div class="product-new">New</div>
                                             }
                                             <div class="product-details">
-                                                <a href="/SingleProduct/@item.Id"><i class="fa fa-eye fa-1x"></i></a>
+                                                <a href="@Url.Action("Index", "SingleProduct", new { Id = item.Id })"><i class="fa fa-eye fa-1x"></i></a>
                                             </div>
                                         </div>
                                         <div class="text-center rounded-bottom p-4">
                                             <a class="d-block mb-2">Camera</a>
-                                            <a href="/SingleProduct/@item.Id" class="d-block h4">@item.ProductName</a>
+                                            <a href="@Url.Action("Index", "SingleProduct", new { Id = item.Id })" class="d-block h4">@item.ProductName</a>
                                             <del class="me-2 fs-5">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.OriginalPrice)</del>
                                             <span class="text-primary fs-5">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.SellingPrice)</span>
                                         </div>

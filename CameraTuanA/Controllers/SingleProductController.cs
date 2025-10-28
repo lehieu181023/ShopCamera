@@ -23,7 +23,7 @@ namespace CameraTuanA.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var product = _db.Product.Include(x => x.Category).FirstOrDefault(p => p.Id == id);
+            var product = _db.Product.Include(x => x.Category).Include(x => x.Brand).FirstOrDefault(p => p.Id == id);
             if (product == null)
             {
                 return RedirectToAction("Index", "Home");

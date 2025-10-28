@@ -88,6 +88,7 @@
 <!-- Shop Page Start -->
 @{
     var lstCatagory = ViewData["Categories"] as List<Category>;
+    var lstBrand = ViewData["Brands"] as List<Brand>;
 }
 <div class="container-fluid shop py-5">
     <div class="container py-5">
@@ -98,7 +99,7 @@
                     <ul class="list-unstyled">
                         <li>
                             <div class="categories-item">
-                                <a class="text-dark" onclick="$('#categoryId').val('0'); Product.loadData()">
+                                <a id="categories-item-0" class="text-dark" onclick="$('#categoryId').val('0'); Product.loadData()">
                                     <i class="fas fa-apple-alt text-secondary me-2"></i>
                                     Tất cả
                                 </a>
@@ -109,7 +110,7 @@
                         {
                             <li>
                                 <div class="categories-item">
-                                    <a class="text-dark" onclick="$('#categoryId').val('@item.Id'); Product.loadData()">
+                                    <a id="categories-item-@item.Id" class="text-dark" onclick="$('#categoryId').val('@item.Id'); Product.loadData()">
                                         <i class="fas fa-apple-alt text-secondary me-2"></i>
                                         @item.CategoryName
                                     </a>
@@ -117,9 +118,34 @@
                                 </div>
                             </li>
                         
+                        } 
+                    </ul>
+                </div>
+                <div class="product-Brands mb-4">
+                    <h4>Hãng sản phẩm</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            <div class="Brands-item">
+                                <a id="Brands-item-0" class="text-dark" onclick="$('#BrandId').val('0'); Product.loadData()">
+                                    <i class="fas fa-apple-alt text-secondary me-2"></i>
+                                    Tất cả
+                                </a>
+                                <span>(@lstBrand.Count)</span>
+                            </div>
+                        </li>
+                        @foreach (var item in lstBrand)
+                        {
+                            <li>
+                                <div class="Brands-item">
+                                    <a id="Brands-item-@item.Id" class="text-dark" onclick="$('#BrandId').val('@item.Id'); Product.loadData()">
+                                        <i class="fas fa-apple-alt text-secondary me-2"></i>
+                                        @item.BrandName
+                                    </a>
+                                    <span>(@item.Products.Count)</span>
+                                </div>
+                            </li>
+
                         }
-                        
-                        
                     </ul>
                 </div>
                 <div id="featuredProduct"></div>
@@ -243,6 +269,7 @@
                         </div>
                     </div>
                     <input type="hidden" id="categoryId" name="categoryId" value="0" />
+                    <input type="hidden" id="BrandId" name="BrandId" value="0" />
                     <input type="hidden" id="page" name="page" value="1" />
                     <div class="col-xl-3 text-end">
                         <div class="bg-light ps-3 py-3 rounded d-flex justify-content-between">

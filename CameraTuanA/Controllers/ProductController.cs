@@ -20,12 +20,14 @@ namespace CameraTuanA.Controllers
         public IActionResult Index()
         {
             var categories = _db.Category.Where(g => g.Status).Include(g => g.Products).OrderBy(g => g.CategoryName).AsNoTracking().ToList();
+            var brands = _db.Brand.Where(g => g.Status).Include(g => g.Products).OrderBy(g => g.BrandName).AsNoTracking().ToList();
             ViewData["Categories"] = categories;
+            ViewData["Brands"] = brands;
             return View();
         }
 
         [HttpPost]
-        public async Task<ActionResult>  ListData(int categoryId = 0,string keySearch = "",string SortBy  = "", int page = 1)
+        public async Task<ActionResult>  ListData(int categoryId = 0,string keySearch = "",string SortBy  = "", int page = 1, int BrandId = 0)
         {
             List<Models.Product> listData = null;
             try
@@ -39,7 +41,11 @@ namespace CameraTuanA.Controllers
                 {
                     list = list.Where(g => g.CategoryId == categoryId);
                 }
-                switch(SortBy)
+                if (BrandId > 0)
+                {
+                    list = list.Where(g => g.BrandId == BrandId);
+                }
+                switch (SortBy)
                 {
                     case "price_asc":
                         list = list.OrderBy(g => g.SellingPrice);
@@ -137,6 +143,16 @@ namespace CameraTuanA.Controllers
                 }
             }
             return PartialView(products);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Brands()
+        {
+            List<Brand> brands = null;
+            
+            brands = await _db.Brand.Where(b => b.Status).OrderBy(b => b.BrandName).AsNoTracking().ToListAsync();
+
+            return PartialView(brands);
         }
 
         [HttpPost]
