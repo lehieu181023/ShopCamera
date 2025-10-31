@@ -8253,11 +8253,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\w\\CameraTuanA\\CameraTuanA\\CameraTuanA\\CameraTuanA.csproj",
+      "projectUniqueName": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\CameraTuanA.csproj",
       "projectName": "CameraTuanA",
-      "projectPath": "C:\\w\\CameraTuanA\\CameraTuanA\\CameraTuanA\\CameraTuanA.csproj",
+      "projectPath": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\CameraTuanA.csproj",
       "packagesPath": "C:\\Users\\lehie\\.nuget\\packages\\",
-      "outputPath": "C:\\w\\CameraTuanA\\CameraTuanA\\CameraTuanA\\obj\\",
+      "outputPath": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

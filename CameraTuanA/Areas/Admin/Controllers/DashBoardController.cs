@@ -30,7 +30,7 @@ namespace CameraTuanA.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<PartialViewResult> salecard(string filter)
+        public async Task<PartialViewResult> salecard(string filter = "today")
         {
             reportCard reportCard = null;
             var report = _db.OrderDetail.Include(x => x.Order).AsNoTracking().AsQueryable().Where(x => x.Order.Status == 3);
@@ -38,9 +38,14 @@ namespace CameraTuanA.Areas.Admin.Controllers
             switch (filter)
             {
                 case "today":
-                    report = report.Where(x => x.Order.OrderDate == DateTime.Now.Date);
-                    reportAgo = reportAgo.Where(x => x.Order.OrderDate == DateTime.Now.AddDays(-1).Date);
+                    var today = DateTime.Now.Date;
+                    var tomorrow = today.AddDays(1);
+                    var yesterday = today.AddDays(-1);
+
+                    report = report.Where(x => x.Order.OrderDate >= today && x.Order.OrderDate < tomorrow);
+                    reportAgo = reportAgo.Where(x => x.Order.OrderDate >= yesterday && x.Order.OrderDate < today);
                     break;
+
                 case "this_month":
                     report = report.Where(x => x.Order.OrderDate.Month == DateTime.Now.Month && x.Order.OrderDate.Year == DateTime.Now.Year);
                     reportAgo = reportAgo.Where(x => x.Order.OrderDate.Month == DateTime.Now.AddMonths(-1).Month && x.Order.OrderDate.Year == DateTime.Now.AddMonths(-1).Year);
@@ -68,7 +73,7 @@ namespace CameraTuanA.Areas.Admin.Controllers
             return PartialView(reportCard);
         }
         [HttpPost]
-        public async Task<PartialViewResult> customercard(string filter)
+        public async Task<PartialViewResult> customercard(string filter = "today")
         {
             reportCard reportCard = null;
             var report = _db.Account.AsNoTracking().AsQueryable().Where(x => x.Role == "customer");
@@ -76,8 +81,12 @@ namespace CameraTuanA.Areas.Admin.Controllers
             switch (filter)
             {
                 case "today":
-                    report = report.Where(x => x.CreatedAt == DateTime.Now.Date);
-                    reportAgo = reportAgo.Where(x => x.CreatedAt == DateTime.Now.AddDays(-1).Date);
+                    var today = DateTime.Now.Date;
+                    var tomorrow = today.AddDays(1);
+                    var yesterday = today.AddDays(-1);
+
+                    report = report.Where(x => x.CreatedAt >= today && x.CreatedAt < tomorrow);
+                    reportAgo = reportAgo.Where(x => x.CreatedAt >= yesterday && x.CreatedAt < today);
                     break;
                 case "this_month":
                     report = report.Where(x => x.CreatedAt.Month == DateTime.Now.Month && x.CreatedAt.Year == DateTime.Now.Year);
@@ -106,7 +115,7 @@ namespace CameraTuanA.Areas.Admin.Controllers
             return PartialView(reportCard);
         }
         [HttpPost]
-        public async Task<PartialViewResult> revenuecard(string filter)
+        public async Task<PartialViewResult> revenuecard(string filter = "today")
         {
             reportCard reportCard = null;
             var report = _db.OrderDetail.Include(x => x.Order).AsNoTracking().AsQueryable().Where(x => x.Order.Status == 3);
@@ -114,8 +123,12 @@ namespace CameraTuanA.Areas.Admin.Controllers
             switch (filter)
             {
                 case "today":
-                    report = report.Where(x => x.Order.OrderDate == DateTime.Now.Date);
-                    reportAgo = reportAgo.Where(x => x.Order.OrderDate == DateTime.Now.AddDays(-1).Date);
+                    var today = DateTime.Now.Date;
+                    var tomorrow = today.AddDays(1);
+                    var yesterday = today.AddDays(-1);
+
+                    report = report.Where(x => x.Order.OrderDate >= today && x.Order.OrderDate < tomorrow);
+                    reportAgo = reportAgo.Where(x => x.Order.OrderDate >= yesterday && x.Order.OrderDate < today);
                     break;
                 case "this_month":
                     report = report.Where(x => x.Order.OrderDate.Month == DateTime.Now.Month && x.Order.OrderDate.Year == DateTime.Now.Year);
@@ -156,15 +169,19 @@ namespace CameraTuanA.Areas.Admin.Controllers
             return PartialView(recentsales);
         }
         [HttpPost]
-        public async Task<PartialViewResult> TopSelling(string filter)
+        public async Task<PartialViewResult> TopSelling(string filter = "today")
         {
             reportTopSell reportCard = null;
             var report = _db.OrderDetail.Include(x => x.Order).Include(x => x.Product).AsNoTracking().AsQueryable().Where(x => x.Order.Status != 5);
             switch (filter)
             {
+
                 case "today":
-                    report = report.Where(x => x.Order.OrderDate == DateTime.Now.Date);
+                    var today = DateTime.Now.Date;
+                    var tomorrow = today.AddDays(1);
+                    report = report.Where(x => x.Order.OrderDate >= today && x.Order.OrderDate < tomorrow);
                     break;
+
                 case "this_month":
                     report = report.Where(x => x.Order.OrderDate.Month == DateTime.Now.Month && x.Order.OrderDate.Year == DateTime.Now.Year);
                     break;

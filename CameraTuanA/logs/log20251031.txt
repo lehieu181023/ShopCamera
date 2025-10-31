@@ -1,0 +1,28 @@
+2025-10-31 10:42:03.169 +07:00 [INF] [admin] Đã tạo Brand mới: Name = ImoU
+2025-10-31 10:42:55.003 +07:00 [INF] [admin] Đã tạo Brand mới: Name = EZVIZ
+2025-10-31 10:44:40.941 +07:00 [INF] [admin] Đã cập nhật Brand: Id = 2
+2025-10-31 10:52:23.982 +07:00 [INF] [admin] Đã tạo Category mới: Name = Dome Camera
+2025-10-31 10:52:36.845 +07:00 [INF] [admin] Đã tạo Category mới: Name = Bullet Camera
+2025-10-31 10:52:50.666 +07:00 [INF] [admin] Đã tạo Category mới: Name = PTZ Camera
+2025-10-31 10:53:02.875 +07:00 [INF] [admin] Đã tạo Category mới: Name = Box Camera
+2025-10-31 10:53:19.642 +07:00 [INF] [admin] Đã tạo Category mới: Name = Fisheye / 360° Camera
+2025-10-31 10:58:11.450 +07:00 [INF] [admin] Đã tạo Product mới: Name = Camera Imou Ranger 2 IPC-A52P 5M, Code = Imou-IPC-A52P
+2025-10-31 11:03:41.675 +07:00 [INF] [admin] Đã tạo Product mới: Name = Camera IP Wifi trong nhà EZVIZ H1C 2mp, Code = ezviz-H1C
+2025-10-31 11:10:05.881 +07:00 [INF] [admin] Đã cập nhật Product: Id = 2, Name = Camera IP Wifi trong nhà EZVIZ H1C 2mp
+2025-10-31 11:22:32.907 +07:00 [INF] [admin] Đã tạo Brand mới: Name = HIKVISION
+2025-10-31 11:24:26.929 +07:00 [INF] [admin] Đã tạo Brand mới: Name = Dahua
+2025-10-31 11:37:43.721 +07:00 [INF] [admin] Đã tạo Product mới: Name = Camera EZVIZ C8C 5M 3K, Code = EZVIZ-C8C
+2025-10-31 11:39:54.374 +07:00 [INF] [admin] Đã tạo Product mới: Name = Camera WiFi ngoài trời EZVIZ H3C 2MP, Code = EZVIZ-H3C
+2025-10-31 11:42:23.421 +07:00 [INF] [admin] Đã tạo Product mới: Name = Camera IP Trụ 2MP có màu 24/7 HikVision DS-3027G2-LUF-AI (AI/Mic/Có màu/Khe MicroSD 256G), Code = HikVision-DS-3027G2-LUF-AI
+2025-10-31 11:51:04.799 +07:00 [INF] [admin] Đã tạo Product mới: Name = Camera Wifi DAHUA Picoo Dual D1 10MP (DH-P5D-5F-PV), Code = DAHUA-Picoo-Dual-D1
+2025-10-31 11:55:24.200 +07:00 [INF] [admin] Đã tạo Product mới: Name = Camera IP Speed Dome 2MP DAHUA DH-SD5A225GB-HNR, Code = DAHUA-DH-SD5A225GB-HNR
+2025-10-31 11:55:49.454 +07:00 [INF] [admin] Đã cập nhật Product: Id = 7, Name = Camera IP Speed Dome 2MP DAHUA DH-SD5A225GB-HNR
+2025-10-31 11:58:01.306 +07:00 [INF] [admin] Đã tạo Product mới: Name = Camera AI đếm người/nhận diện khuôn mặt Hikvision 4MP iDS-2CD8146G0-IZS(2.8-12mm), Code = iDS-2CD8146G0-IZS
+2025-10-31 12:01:09.900 +07:00 [INF] [admin] Đã tạo Product mới: Name = Camera IP PTZ Wifi 2MP DAHUA DH-SD2A200HB-GN-AW-PV-S2, Code = DAHUA DH-SD2A200HB-GN-AW-PV-S2
+2025-10-31 14:07:13.149 +07:00 [INF] [admin] Đã tạo Product mới: Name = Camera giám sát IP Imou TA32CP-L 3MP, Code = Imou-TA32CP-L
+2025-10-31 14:14:39.714 +07:00 [INF] [admin] Đã tạo Product mới: Name = Camera giám sát IP Imou Ranger Dual 6MP IPC-S2XP-6M0WED, Code = IPC-S2XP-6M0WED
+2025-10-31 14:23:54.085 +07:00 [INF] [abc] Đã tạo đơn hàng: DH20251031142353
+2025-10-31 14:24:41.701 +07:00 [INF] [lehieu123] Đã tạo đơn hàng: DH20251031142441
+2025-10-31 14:26:27.330 +07:00 [INF] [lehieu123] Đã tạo đơn hàng: DH20251031142627
+2025-10-31 14:29:24.604 +07:00 [INF] [admin] Đã thay đổi trạng thái Order: Id = 3, Status = 3
+2025-10-31 14:29:29.306 +07:00 [INF] [admin] Đã thay đổi trạng thái Order: Id = 2, Status = 3

@@ -120,7 +120,7 @@ namespace CameraTuanA.Controllers
             var bestSellers = _db.Product
                 .OrderByDescending(p => p.RatingCount)  // nhiều lượt đánh giá
                 .ThenByDescending(p => p.RatingScore)   // điểm cao hơn
-                .Take(6)
+                .Take(4)
                 .AsNoTracking()
                 .ToList();
             return PartialView(bestSellers);

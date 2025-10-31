@@ -116,7 +116,13 @@
                     </div>
                     <div class="col-xl-6">
                         <h4 class="fw-bold mb-3">@Model.ProductName</h4>
-                        <p class="mb-3">Danh mục: @Model.Category.CategoryName</p>
+                        <p class="mb-3">
+                            Danh mục:
+                            <span data-bs-toggle="tooltip" data-bs-placement="top" title="@Model.Category.Description">
+                                @Model.Category.CategoryName
+                            </span>
+                        </p>
+
                         <p class="mb-3">Hãng: @Model.Brand.BrandName</p>
                         <h5 class="fw-bold mb-3">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", Model.SellingPrice)</h5>
                         <div class="d-flex mb-4">
@@ -148,7 +154,10 @@
                             <small>Mã sản phẩm (SKU): @Model.ProductCode</small>
                             <small>Tình trạng: <strong class="text-primary">Còn @Model.StockQuantity sản phẩm trong kho</strong></small>
                         </div>
-                        <p class="mb-4" style="white-space:nowrap">@Model.ShortDescription</p>
+                        <p class="mb-4" style="white-space: pre-line; word-wrap: break-word;">
+                            @Model.ShortDescription
+                        </p>
+
                         <div class="input-group quantity mb-5" style="width: 100px;">
                             <div class="input-group-btn">
                                 <button class="btn btn-sm btn-minus rounded-circle bg-light border">
@@ -175,6 +184,11 @@
                                         aria-controls="nav-about" aria-selected="true">
                                     Mô tả
                                 </button>
+                                <button class="nav-link border-white border-bottom-0" type="button"
+                                        role="tab" id="nav-kt-tab" data-bs-toggle="tab" data-bs-target="#nav-kt"
+                                        aria-controls="nav-kt" aria-selected="false">
+                                    Thông số kỹ thuật
+                                </button>
                                 <button class="nav-link border-white border-bottom-0" type="button" role="tab"
                                         id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission"
                                         aria-controls="nav-mission" aria-selected="false">
@@ -184,7 +198,10 @@
                         </nav>
                         <div class="tab-content mb-5">
                             <div class="tab-pane active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
-                                <p class="mb-4" style="white-space:nowrap">@Model.DetailedDescription</p>
+                                <p class="mb-4" style="white-space: pre-line; word-wrap: break-word;">@Model.DetailedDescription</p>
+                            </div>
+                            <div class="tab-pane" id="nav-kt" role="tabpanel" aria-labelledby="nav-kt-tab">
+                                <p class="mb-4" style="white-space: pre-line; word-wrap: break-word;">@Model.TechnicalSpecs</p>
                             </div>
                             <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
                                 @{
@@ -327,6 +344,13 @@
 </style>
 
 @section Scripts {
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+
     <script>
         let selectedStar = 0;
 

@@ -33,7 +33,7 @@
                         </div>
                         <div class="text-center rounded-bottom p-4">
                             <a  class="d-block mb-2">Camera</a>
-                            <a  class="d-block h4">@item.ProductName </a>
+                            <a  href="@Url.Action("Index", "SingleProduct", new { Id = item.Id })" class="d-block h4">@item.ProductName </a>
                             @if(item.OriginalPrice != null)
                             {
                             <del class="me-2 fs-5">@String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.OriginalPrice)</del>

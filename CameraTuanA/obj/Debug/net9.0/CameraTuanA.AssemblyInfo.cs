@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CameraTuanA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+abc08a621591acb7785095d7112f869df62a6438")]
 [assembly: System.Reflection.AssemblyProductAttribute("CameraTuanA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CameraTuanA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

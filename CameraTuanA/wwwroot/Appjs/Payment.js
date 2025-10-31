@@ -1,7 +1,5 @@
 ﻿window.Payment = createCrudModule("Payment");
 
-window.Payment = createCrudModule("Payment");
-
 Payment.PaySuccess = function (res) {
     if (!res) {
         showToast('Không nhận được phản hồi từ máy chủ!', 'error');
@@ -15,7 +13,7 @@ Payment.PaySuccess = function (res) {
         if (res.cod) {
             // Hiển thị thông báo thành công và chuyển hướng
             setTimeout(function () {
-                window.location.href = "/Order/Success";
+                window.location.href = "/";
             }, 2000);
             return;
         }

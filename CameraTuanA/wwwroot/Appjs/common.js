@@ -92,6 +92,7 @@ addToCart = function (id, quantity) {
             } else {
                 showToast(res.message, 'error');
             }
+            loadPrice();
         },
         error: function (xhr) {
             if (xhr.status === 401) {

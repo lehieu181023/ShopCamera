@@ -4,7 +4,15 @@
 @{
     var lstCategory = ViewData["Categories"] as List<CameraTuanA.Models.Category>;
     var lstBrand = ViewData["Brands"] as List<CameraTuanA.Models.Brand>;
-    var selectLstCategory = new SelectList(lstCategory, "Id", "CategoryName");
+    var selectLstCategory = new SelectList(
+        lstCategory.Select(x => new
+        {
+            Id = x.Id,
+            DisplayText = x.CategoryName + " - " + x.Description
+        }),
+        "Id",
+        "DisplayText"
+    );
     var selectLstBrand = new SelectList(lstBrand, "Id", "BrandName");
 }
 <div class="modal" id="myModal">

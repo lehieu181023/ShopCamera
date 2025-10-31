@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RcthVD+Sjgo=",
+  "dgSpecHash": "CmAaRPpvxww=",
   "success": true,
-  "projectFilePath": "C:\\w\\CameraTuanA\\CameraTuanA\\CameraTuanA\\CameraTuanA.csproj",
+  "projectFilePath": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\CameraTuanA.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lehie\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\lehie\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
