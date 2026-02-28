@@ -3,68 +3,64 @@
   "WorkspaceRootPath": "C:\\w\\Git\\ShopCamera\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\areas\\admin\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\areas\\admin\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\areas\\admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\areas\\admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\views\\payment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\views\\payment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\views\\cart\\listdata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\views\\cart\\listdata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\views\\payment\\vnpayreturn.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\views\\payment\\vnpayreturn.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\wwwroot\\appjs\\payment.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\wwwroot\\appjs\\payment.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\areas\\admin\\views\\account\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\areas\\admin\\views\\account\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\views\\product\\listdata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\views\\product\\listdata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\views\\singleproduct\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\views\\singleproduct\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\areas\\admin\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\areas\\admin\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\wwwroot\\appjs\\cart.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\wwwroot\\appjs\\cart.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\areas\\admin\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\areas\\admin\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\wwwroot\\appjs\\common.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\wwwroot\\appjs\\common.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\views\\product\\bestseller.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\views\\product\\bestseller.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\views\\product\\featuredproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\views\\product\\featuredproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\wwwroot\\appjs\\admin\\common.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\wwwroot\\appjs\\admin\\common.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\areas\\admin\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\areas\\admin\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\areas\\admin\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\areas\\admin\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\areas\\admin\\views\\product\\listdata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\areas\\admin\\views\\product\\listdata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|c:\\w\\git\\shopcamera\\cameratuana\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C3CA19E-FF5E-4781-A595-B0EEEFE2CC11}|CameraTuanA\\CameraTuanA.csproj|solutionrelative:cameratuana\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -79,198 +75,183 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Contact\\Index.cshtml",
-              "RelativeDocumentMoniker": "CameraTuanA\\Areas\\Admin\\Views\\Contact\\Index.cshtml",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Contact\\Index.cshtml",
-              "RelativeToolTip": "CameraTuanA\\Areas\\Admin\\Views\\Contact\\Index.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACMAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:49:50.886Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DashBoardController.cs",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Controllers\\DashBoardController.cs",
-              "RelativeDocumentMoniker": "CameraTuanA\\Areas\\Admin\\Controllers\\DashBoardController.cs",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Controllers\\DashBoardController.cs",
-              "RelativeToolTip": "CameraTuanA\\Areas\\Admin\\Controllers\\DashBoardController.cs",
-              "ViewState": "AgIAALEAAAAAAAAAAAApwMAAAAAUAAAAAAAAAA==",
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "CameraTuanA\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "CameraTuanA\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwBoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T07:31:48.17Z",
+              "WhenOpened": "2026-01-05T09:00:07.337Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "VnpayReturn.cshtml",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Payment\\VnpayReturn.cshtml",
-              "RelativeDocumentMoniker": "CameraTuanA\\Views\\Payment\\VnpayReturn.cshtml",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Payment\\VnpayReturn.cshtml",
-              "RelativeToolTip": "CameraTuanA\\Views\\Payment\\VnpayReturn.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:28:37.69Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Payment\\Index.cshtml",
-              "RelativeDocumentMoniker": "CameraTuanA\\Views\\Payment\\Index.cshtml",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Payment\\Index.cshtml",
-              "RelativeToolTip": "CameraTuanA\\Views\\Payment\\Index.cshtml",
-              "ViewState": "AgIAAO0AAAAAAAAAAAAAAPoAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:25:31.902Z",
-              "EditorCaption": ""
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "CameraTuanA\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "CameraTuanA\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAqwG0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T14:52:24.467Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Payment.js",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\wwwroot\\Appjs\\Payment.js",
-              "RelativeDocumentMoniker": "CameraTuanA\\wwwroot\\Appjs\\Payment.js",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\wwwroot\\Appjs\\Payment.js",
-              "RelativeToolTip": "CameraTuanA\\wwwroot\\Appjs\\Payment.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-10-31T07:25:02.852Z"
+              "Title": "DashBoardController.cs",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Controllers\\DashBoardController.cs",
+              "RelativeDocumentMoniker": "CameraTuanA\\Areas\\Admin\\Controllers\\DashBoardController.cs",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Controllers\\DashBoardController.cs",
+              "RelativeToolTip": "CameraTuanA\\Areas\\Admin\\Controllers\\DashBoardController.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAqwK0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T14:52:24.49Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "CameraTuanA\\Controllers\\PaymentController.cs",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "CameraTuanA\\Controllers\\PaymentController.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAmwIEAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T14:03:45.654Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "ListData.cshtml",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Product\\ListData.cshtml",
-              "RelativeDocumentMoniker": "CameraTuanA\\Views\\Product\\ListData.cshtml",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Product\\ListData.cshtml",
-              "RelativeToolTip": "CameraTuanA\\Views\\Product\\ListData.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACMAAABiAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Cart\\ListData.cshtml",
+              "RelativeDocumentMoniker": "CameraTuanA\\Views\\Cart\\ListData.cshtml",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Cart\\ListData.cshtml",
+              "RelativeToolTip": "CameraTuanA\\Views\\Cart\\ListData.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAC0AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:22:07.65Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "common.js",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\wwwroot\\Appjs\\common.js",
-              "RelativeDocumentMoniker": "CameraTuanA\\wwwroot\\Appjs\\common.js",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\wwwroot\\Appjs\\common.js",
-              "RelativeToolTip": "CameraTuanA\\wwwroot\\Appjs\\common.js",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAkwF4AAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-10-31T07:19:48.375Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Cart.js",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\wwwroot\\Appjs\\Cart.js",
-              "RelativeDocumentMoniker": "CameraTuanA\\wwwroot\\Appjs\\Cart.js",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\wwwroot\\Appjs\\Cart.js",
-              "RelativeToolTip": "CameraTuanA\\wwwroot\\Appjs\\Cart.js",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAABoAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-10-31T07:19:17.525Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "BestSeller.cshtml",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Product\\BestSeller.cshtml",
-              "RelativeDocumentMoniker": "CameraTuanA\\Views\\Product\\BestSeller.cshtml",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Product\\BestSeller.cshtml",
-              "RelativeToolTip": "CameraTuanA\\Views\\Product\\BestSeller.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:16:32.903Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "CameraTuanA\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "CameraTuanA\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAowHoAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T04:52:00.582Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "featuredProduct.cshtml",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Product\\featuredProduct.cshtml",
-              "RelativeDocumentMoniker": "CameraTuanA\\Views\\Product\\featuredProduct.cshtml",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Product\\featuredProduct.cshtml",
-              "RelativeToolTip": "CameraTuanA\\Views\\Product\\featuredProduct.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T04:51:46.596Z"
+              "WhenOpened": "2025-11-18T13:56:44.447Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\SingleProduct\\Index.cshtml",
-              "RelativeDocumentMoniker": "CameraTuanA\\Views\\SingleProduct\\Index.cshtml",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\SingleProduct\\Index.cshtml",
-              "RelativeToolTip": "CameraTuanA\\Views\\SingleProduct\\Index.cshtml",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAFsAAABSAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "CameraTuanA\\Views\\Cart\\Index.cshtml",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Cart\\Index.cshtml",
+              "RelativeToolTip": "CameraTuanA\\Views\\Cart\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T04:04:21.238Z"
+              "WhenOpened": "2025-11-18T13:56:43.247Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 1,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "CameraTuanA\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "CameraTuanA\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAKgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T13:44:39.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Product\\Edit.cshtml",
-              "RelativeDocumentMoniker": "CameraTuanA\\Areas\\Admin\\Views\\Product\\Edit.cshtml",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Product\\Edit.cshtml",
-              "RelativeToolTip": "CameraTuanA\\Areas\\Admin\\Views\\Product\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAGAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Account\\Edit.cshtml",
+              "RelativeDocumentMoniker": "CameraTuanA\\Areas\\Admin\\Views\\Account\\Edit.cshtml",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Account\\Edit.cshtml",
+              "RelativeToolTip": "CameraTuanA\\Areas\\Admin\\Views\\Account\\Edit.cshtml",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAACQAAABpAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T04:01:20.651Z"
+              "WhenOpened": "2025-11-18T13:42:28.19Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Product\\Create.cshtml",
               "RelativeDocumentMoniker": "CameraTuanA\\Areas\\Admin\\Views\\Product\\Create.cshtml",
               "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Product\\Create.cshtml",
               "RelativeToolTip": "CameraTuanA\\Areas\\Admin\\Views\\Product\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T03:59:26.266Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "CameraTuanA\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "CameraTuanA\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAAAJsAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T02:38:48.008Z"
+              "WhenOpened": "2025-11-18T13:29:33.654Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "common.js",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\wwwroot\\Appjs\\Admin\\common.js",
+              "RelativeDocumentMoniker": "CameraTuanA\\wwwroot\\Appjs\\Admin\\common.js",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\wwwroot\\Appjs\\Admin\\common.js",
+              "RelativeToolTip": "CameraTuanA\\wwwroot\\Appjs\\Admin\\common.js",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwA8AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-18T13:28:49.617Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "CameraTuanA\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "CameraTuanA\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAKwAAAAAAAAAAAAAAL0AAAAtAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "CameraTuanA\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "CameraTuanA\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T02:38:30.177Z"
+              "WhenOpened": "2025-11-18T13:26:40.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Program.cs",
+              "RelativeDocumentMoniker": "CameraTuanA\\Program.cs",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Program.cs",
+              "RelativeToolTip": "CameraTuanA\\Program.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADsAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T13:25:36.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "listdata.cshtml",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Product\\listdata.cshtml",
+              "RelativeDocumentMoniker": "CameraTuanA\\Areas\\Admin\\Views\\Product\\listdata.cshtml",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Product\\listdata.cshtml",
+              "RelativeToolTip": "CameraTuanA\\Areas\\Admin\\Views\\Product\\listdata.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-18T13:23:15.341Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "CameraTuanA\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "CameraTuanA\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAKMAAAAAAAAAAADwv7EAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T13:22:42.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_LayoutAdmin.cshtml",
+              "DocumentMoniker": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "CameraTuanA\\Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ToolTip": "C:\\w\\Git\\ShopCamera\\CameraTuanA\\Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeToolTip": "CameraTuanA\\Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ViewState": "AgIAADsAAAAAAAAAAAAYwIUAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-07T12:40:12.77Z"
             }
           ]
         }

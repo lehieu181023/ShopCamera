@@ -1,0 +1,249 @@
+﻿using CameraTuanA.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
+
+namespace CameraTuanA.Controllers
+{
+    public class PaymentController : Controller
+    {
+        private readonly DBContext _db;
+        private readonly ILogger<PaymentController> _logger;
+
+        public PaymentController(DBContext db,ILogger<PaymentController> logger)
+        {
+            _db = db;
+            _logger = logger;
+        }
+
+        public IActionResult Index()
+        {
+            var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var cartItems = _db.ShoppingCart.Include(c => c.Product).Where(p => p.AccountId.ToString() == UserId).ToList();
+            var user = _db.Account.Find(int.Parse(UserId ?? "0"));
+            ViewData["User"] = user;
+            return View(cartItems);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<JsonResult> Create(Models.Order obj)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Json(new { success = false, message = "Vui lòng đăng nhập để thực hiện chức năng này!" });
+            }
+
+            obj.AccountId = int.Parse(userId);
+
+            var cart = await _db.ShoppingCart
+                .Include(c => c.Product)
+                .Where(p => p.AccountId.ToString() == userId)
+                .ToListAsync();
+
+            if (cart == null || !cart.Any())
+            {
+                return Json(new { success = false, message = "Giỏ hàng trống!" });
+            }
+
+            using var transaction = await _db.Database.BeginTransactionAsync();
+            try
+            {
+                ModelState.Remove("Account");
+                ModelState.Remove("OrderCode");
+
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogWarning($"[{User.Identity?.Name}] Nhập dữ liệu không hợp lệ");
+                    return Json(new { success = false, message = "Lỗi dữ liệu nhập" });
+                }
+
+                // Tạo đơn hàng
+                obj.OrderCode = "DH" + DateTime.Now.ToString("yyyyMMddHHmmss");
+                obj.OrderDate = DateTime.Now;
+                obj.Status = 0; // Mới tạo
+
+                _db.Order.Add(obj);
+                await _db.SaveChangesAsync(); // để lấy Id
+
+                // Tạo chi tiết đơn hàng
+                List<OrderDetail> orderDetails = new();
+                decimal totalAmount = 0;
+
+                foreach (var item in cart)
+                {
+                    var orderDetail = new OrderDetail
+                    {
+                        OrderId = obj.Id,
+                        ProductId = item.ProductId,
+                        Quantity = item.Quantity,
+                        ProductName = item.Product.ProductName,
+                        ProductImage = item.Product.MainImage,
+                        SellingPrice = item.Product.SellingPrice,
+                        Subtotal = item.Product.SellingPrice * item.Quantity
+                    };
+                    totalAmount += orderDetail.Subtotal;
+                    orderDetails.Add(orderDetail);
+
+                    // Trừ tồn kho
+                    var product = await _db.Product.FindAsync(item.ProductId);
+                    if (product != null)
+                    {
+                        product.StockQuantity -= item.Quantity;
+                        _db.Product.Update(product);
+                    }
+                }
+
+                _db.OrderDetail.AddRange(orderDetails);
+                _db.ShoppingCart.RemoveRange(cart);
+
+                await _db.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                _logger.LogInformation($"[{User.Identity?.Name}] Đã tạo đơn hàng: {obj.OrderCode}");
+
+                // Nếu là COD → hoàn tất luôn
+                if (obj.PaymentMethod == "cod")
+                {
+                    return Json(new { success = true, message = "Tạo đơn hàng thành công", cod = true });
+                }
+
+                // Nếu là VNPay → trả URL để redirect
+                string paymentUrl = Url.Action("PaymentDemo", "Payment",
+                                         new { orderCode = obj.OrderCode, amount = totalAmount }, protocol: "https");
+
+                return Json(new { success = true, message = "Tạo đơn hàng thành công", url = paymentUrl });
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                _logger.LogError(ex, $"[{User.Identity?.Name}] Lỗi khi tạo đơn hàng");
+                return Json(new { success = false, message = "Lỗi tạo đơn hàng, vui lòng thử lại!" });
+            }
+        }
+
+        public IActionResult PaymentDemo(string orderCode, decimal amount)
+        {
+            string vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+            string vnp_ReturnUrl = "https://80d7565c18d9.ngrok-free.app/payment/VnpayReturn/";
+            string vnp_TmnCode = "E77QC36M";
+            string vnp_HashSecret = "AQVZZT40K6GVCR26SWVW5RU2QJLWLYU9";
+
+            string ip = HttpContext.Connection.RemoteIpAddress?
+                                           .MapToIPv4()
+                                           .ToString()
+                                           ?? "127.0.0.1";
+
+            var vnpData = new SortedList<string, string>(StringComparer.Ordinal)
+            {
+                { "vnp_Version", "2.1.0" },
+                { "vnp_Command", "pay" },
+                { "vnp_TmnCode", vnp_TmnCode },
+                { "vnp_Amount", ((int)(amount * 100)).ToString() },
+                { "vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss") },
+                { "vnp_ExpireDate", DateTime.Now.AddMinutes(15).ToString("yyyyMMddHHmmss") },
+                { "vnp_CurrCode", "VND" },
+                { "vnp_IpAddr", "127.0.0.1" },
+                { "vnp_Locale", "vn" },
+                { "vnp_OrderInfo", $"Payment for order {orderCode}" },
+                { "vnp_OrderType", "other" },
+                { "vnp_ReturnUrl", vnp_ReturnUrl },
+                { "vnp_TxnRef", orderCode }
+            };
+
+            // 1. Chuỗi ký (encode)
+            string rawHashData = string.Join("&",
+                vnpData.Select(kvp => $"{kvp.Key}={Uri.EscapeDataString(kvp.Value)}"));
+
+            // 2. Ký SHA512
+            string secureHash;
+            using (var hmac = new HMACSHA512(Encoding.UTF8.GetBytes(vnp_HashSecret)))
+            {
+                secureHash = BitConverter.ToString(
+                        hmac.ComputeHash(Encoding.UTF8.GetBytes(rawHashData)))
+                        .Replace("-", "")
+                        .ToLower();
+            }
+
+            // 3. Query gửi VNPay
+            string query = string.Join("&",
+                vnpData.Select(kvp => $"{kvp.Key}={Uri.EscapeDataString(kvp.Value)}"));
+
+            string paymentUrl = $"{vnp_Url}?{query}&vnp_SecureHash={secureHash}";
+            return Redirect(paymentUrl);
+        }
+
+
+
+        public IActionResult VnpayReturn()
+        {
+            var query = Request.Query.ToDictionary(k => k.Key, v => v.Value.ToString());
+            string vnp_HashSecret = "AQVZZT40K6GVCR26SWVW5RU2QJLWLYU9";
+
+            if (!query.TryGetValue("vnp_SecureHash", out var vnp_SecureHash))
+            {
+                ViewBag.Message = "❌ Thiếu mã hash xác minh từ VNPay.";
+                return View();
+            }
+
+            // Bỏ vnp_SecureHash và vnp_SecureHashType khỏi chuỗi để ký lại
+            query.Remove("vnp_SecureHash");
+            query.Remove("vnp_SecureHashType");
+
+            // Sắp xếp key theo alphabet và ký lại
+            var ordered = query.OrderBy(kv => kv.Key);
+            string rawData = string.Join("&", ordered.Select(kv => $"{kv.Key}={kv.Value}"));
+            string computedHash;
+
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(Encoding.UTF8.GetBytes(vnp_HashSecret)))
+            {
+                computedHash = BitConverter.ToString(hmac.ComputeHash(Encoding.UTF8.GetBytes(rawData)))
+                    .Replace("-", "").ToLower();
+            }
+
+            if (computedHash != vnp_SecureHash)
+            {
+                ViewBag.Message = "❌ Dữ liệu không hợp lệ (sai mã hash).";
+                return View();
+            }
+
+            // ✅ Đến đây là hợp lệ
+            string responseCode = query["vnp_ResponseCode"];
+            string orderCode = query["vnp_TxnRef"];
+
+            var order = _db.Order.FirstOrDefault(o => o.OrderCode == orderCode);
+            if (order == null)
+            {
+                ViewBag.Message = "❌ Không tìm thấy đơn hàng.";
+                return View();
+            }
+
+            if (responseCode == "00")
+            {
+                order.Status = 1; // Đã thanh toán
+                _db.SaveChanges();
+                ViewBag.Message = $"✅ Thanh toán thành công cho đơn hàng {orderCode}";
+            }
+            else
+            {
+                ViewBag.Message = $"❌ Thanh toán thất bại ({responseCode})";
+            }
+
+            return View();
+        }
+
+
+
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
+}
